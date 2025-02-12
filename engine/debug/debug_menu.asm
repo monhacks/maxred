@@ -120,7 +120,7 @@ TestBattle: ; unreferenced except in _DEBUG
 	; Select the opponent's level and Pokemon.
 	ld a, RHYDON
 	ld [wCurOpponent], a
-	ld a, 100 ; Set the level you want here.
+	ld a, 20 ; Set the level you want here.
 	ld [wCurEnemyLevel], a
 
 	predef InitOpponent
