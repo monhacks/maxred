@@ -96,7 +96,7 @@ TestBattle: ; unreferenced except in _DEBUG
 	dec a
 	ld [hl], a
 
-	; Give the player a level 20 Rhydon.
+	; Set the player's Pokemon and level.
 	ld a, RHYDON
 	ld [wCurPartySpecies], a
 	ld a, 20
@@ -106,9 +106,22 @@ TestBattle: ; unreferenced except in _DEBUG
 	ld [wCurMap], a
 	call AddPartyMon
 
-	; Fight against a level 20 Rhydon.
+	; Set the player's Pokemon's moves.
+	ld hl, wPartyMon1Moves
+	ld a, SPLASH
+	ld [hli], a
+	ld a, HYPER_BEAM
+	ld [hli], a
+	ld a, SUBSTITUTE
+	ld [hli], a
+	ld a, DIG
+	ld [hli], a
+
+	; Select the opponent's level and Pokemon.
 	ld a, RHYDON
 	ld [wCurOpponent], a
+	ld a, 100 ; Set the level you want here.
+	ld [wCurEnemyLevel], a
 
 	predef InitOpponent
 
