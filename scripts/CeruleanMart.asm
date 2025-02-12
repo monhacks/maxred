@@ -15,5 +15,5 @@ CeruleanMartCooltrainerFText:
 	text_far _CeruleanMartCooltrainerFText
 	text_end
 
-CeruleanMartClerkText::
+CeruleanMartClerkText:
 	script_mart POKE_BALL, SUPER_POTION, ANTIDOTE, PARLYZ_HEAL, AWAKENING, ESCAPE_ROPE, REPEL

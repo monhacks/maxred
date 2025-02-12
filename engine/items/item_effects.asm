@@ -100,6 +100,21 @@ ItemUsePtrTable:
 	dw ItemUsePPRestore  ; MAX_ETHER
 	dw ItemUsePPRestore  ; ELIXER
 	dw ItemUsePPRestore  ; MAX_ELIXER
+	dw ItemUseEvoStone   ; SUN_STONE
+	dw ItemUseEvoStone   ; DUSK_STONE
+	dw ItemUseEvoStone   ; SHINY_STONE
+	dw ItemUseEvoStone   ; ICE_STONE
+	dw ItemUseEvoStone   ; KINGS_ROCK
+	dw ItemUseEvoStone   ; METAL_COAT
+	dw ItemUseEvoStone   ; DRAGON_SCALE
+	dw ItemUseEvoStone   ; UPGRADE
+	dw ItemUseEvoStone   ; DUBIOUS_DISC
+	dw ItemUseEvoStone   ; RAZOR_CLAW
+	dw ItemUseEvoStone   ; RAZOR_FANG
+	dw ItemUseEvoStone   ; SUN_STONE
+	dw ItemUseEvoStone   ; PROTECTOR
+	dw ItemUseEvoStone   ; ELECTIRIZER
+	dw ItemUseEvoStone   ; MAGMARIZER
 
 ItemUseBall:
 

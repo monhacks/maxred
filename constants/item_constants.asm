@@ -92,23 +92,37 @@ DEF SAFARI_ROCK EQU CASCADEBADGE ; overload
 	const MAX_ETHER     ; $51
 	const ELIXER        ; $52
 	const MAX_ELIXER    ; $53
+	const SUN_STONE     ; $54
+	const DUSK_STONE    ; $55
+	const SHINY_STONE   ; $56
+	const ICE_STONE     ; $57
+	const KINGS_ROCK    ; $58
+	const METAL_COAT    ; $59
+	const DRAGON_SCALE  ; $5A
+	const UPGRADE       ; $5B
+	const DUBIOUS_DISC  ; $5C
+	const RAZOR_CLAW    ; $5D
+	const RAZOR_FANG    ; $5E
+	const PROTECTOR     ; $5F
+	const ELECTIRIZER   ; $60
+	const MAGMARIZER    ; $61
 DEF NUM_ITEMS EQU const_value - 1
 
 ; elevator floors use item IDs
-	const FLOOR_B2F     ; $54
-	const FLOOR_B1F     ; $55
-	const FLOOR_1F      ; $56
-	const FLOOR_2F      ; $57
-	const FLOOR_3F      ; $58
-	const FLOOR_4F      ; $59
-	const FLOOR_5F      ; $5A
-	const FLOOR_6F      ; $5B
-	const FLOOR_7F      ; $5C
-	const FLOOR_8F      ; $5D
-	const FLOOR_9F      ; $5E
-	const FLOOR_10F     ; $5F
-	const FLOOR_11F     ; $60
-	const FLOOR_B4F     ; $61
+	const FLOOR_B2F     ; $62
+	const FLOOR_B1F     ; $63
+	const FLOOR_1F      ; $64
+	const FLOOR_2F      ; $65
+	const FLOOR_3F      ; $66
+	const FLOOR_4F      ; $67
+	const FLOOR_5F      ; $68
+	const FLOOR_6F      ; $69
+	const FLOOR_7F      ; $6A
+	const FLOOR_8F      ; $6B
+	const FLOOR_9F      ; $6B
+	const FLOOR_10F     ; $6C
+	const FLOOR_11F     ; $6D
+	const FLOOR_B4F     ; $6E
 DEF NUM_FLOORS EQU const_value - 1 - NUM_ITEMS
 
 	const_next $C4
