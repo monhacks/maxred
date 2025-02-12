@@ -31,3 +31,6 @@ LavenderMartCooltrainerMText:
 .NuggetText
 	text_far _LavenderMartCooltrainerMNuggetText
 	text_end
+
+LavenderMartClerkText::
+	script_mart GREAT_BALL, SUPER_POTION, REVIVE, ANTIDOTE, PARLYZ_HEAL, AWAKENING, BURN_HEAL, ICE_HEAL, ESCAPE_ROPE, SUPER_REPEL

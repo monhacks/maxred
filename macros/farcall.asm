@@ -1,7 +1,7 @@
 MACRO farcall
 	ld b, BANK(\1)
 	ld hl, \1
-	call Bankswitch
+	rst _Bankswitch
 ENDM
 
 MACRO callfar
@@ -13,7 +13,7 @@ ENDM
 MACRO farjp
 	ld b, BANK(\1)
 	ld hl, \1
-	jp Bankswitch
+	rst _Bankswitch
 ENDM
 
 MACRO jpfar
