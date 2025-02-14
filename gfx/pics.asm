@@ -381,3 +381,6 @@ GloomPicFront::        INCBIN "gfx/pokemon/front/gloom.pic"
 GloomPicBack::         INCBIN "gfx/pokemon/back/gloomb.pic"
 VileplumePicFront::    INCBIN "gfx/pokemon/front/vileplume.pic"
 VileplumePicBack::     INCBIN "gfx/pokemon/back/vileplumeb.pic"
+MewPicFront::          INCBIN "gfx/pokemon/front/mew.pic"
+MewPicBack::          INCBIN "gfx/pokemon/back/mewb.pic"
+
