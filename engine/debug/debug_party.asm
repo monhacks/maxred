@@ -19,7 +19,7 @@ DebugNewGameParty: ; unreferenced except in _DEBUG
 	; From https://web.archive.org/web/20000607152840/http://pocket.ign.com/news/14973.html
 	db EXEGGUTOR, 90
 IF DEF(_DEBUG)
-	db MEW, 5
+	db EEVEE, 15
 ELSE
 	db MEW, 20
 ENDC
@@ -144,7 +144,7 @@ DebugNewGameItemsList:
 	db MAX_REPEL, 99
 	db RARE_CANDY, 99
 	db MASTER_BALL, 99
-	db MOON_STONE, 99
+	db SHINY_STONE, 99
 	db HP_UP, 99
 	db PP_UP, 99
 	db NUGGET, 99
