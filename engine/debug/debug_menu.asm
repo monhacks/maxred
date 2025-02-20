@@ -99,7 +99,7 @@ TestBattle: ; unreferenced except in _DEBUG
 	; Set the player's Pokemon and level.
 	ld a, RHYDON
 	ld [wCurPartySpecies], a
-	ld a, 20
+	ld a, 100
 	ld [wCurEnemyLevel], a
 	xor a
 	ld [wMonDataLocation], a
@@ -120,7 +120,7 @@ TestBattle: ; unreferenced except in _DEBUG
 	; Select the opponent's level and Pokemon.
 	ld a, RHYDON
 	ld [wCurOpponent], a
-	ld a, 20 ; Set the level you want here.
+	ld a, 100 ; Set the level you want here.
 	ld [wCurEnemyLevel], a
 
 	predef InitOpponent

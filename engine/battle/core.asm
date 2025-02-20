@@ -5459,7 +5459,9 @@ MoveHitTest:
 ; note that this means that even the highest accuracy is still just a 255/256 chance, not 100%
 	call BattleRandom
 	cp b
+	jr z, .move_hit ; joenote - fixed accuracy so a move hits if acc = randnum
 	jr nc, .moveMissed
+.move_hit
 	ret
 .moveMissed
 	xor a
