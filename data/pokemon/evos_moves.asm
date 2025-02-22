@@ -1057,7 +1057,7 @@ KrabbyEvosMoves:
 	db EVOLVE_LEVEL, 28, KINGLER
 	db 0
 ; Learnset
-	db 20, VICEGRIP
+	db 20, VISE_GRIP
 	db 25, GUILLOTINE
 	db 30, STOMP
 	db 35, CRABHAMMER
@@ -1651,7 +1651,7 @@ KinglerEvosMoves:
 ; Evolutions
 	db 0
 ; Learnset
-	db 20, VICEGRIP
+	db 20, VISE_GRIP
 	db 25, GUILLOTINE
 	db 34, STOMP
 	db 42, CRABHAMMER
