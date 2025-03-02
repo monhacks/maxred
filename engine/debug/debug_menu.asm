@@ -97,7 +97,7 @@ TestBattle: ; unreferenced except in _DEBUG
 	ld [hl], a
 
 	; Set the player's Pokemon and level.
-	ld a, RHYDON
+	ld a, HITMONTOP
 	ld [wCurPartySpecies], a
 	ld a, 100
 	ld [wCurEnemyLevel], a
@@ -114,11 +114,19 @@ TestBattle: ; unreferenced except in _DEBUG
 	ld [hli], a
 	ld a, SUBSTITUTE
 	ld [hli], a
-	ld a, DIG
+	ld a, TRIPLE_KICK
 	ld [hli], a
 
+	; Set the player's Pokemon's PP.
+	ld hl, wPartyMon1PP
+	ld a, 40
+	ld [hli], a
+	ld [hli], a
+	ld [hli], a
+	ld [hl], a
+
 	; Select the opponent's level and Pokemon.
-	ld a, RHYDON
+	ld a, AZUMARILL
 	ld [wCurOpponent], a
 	ld a, 100 ; Set the level you want here.
 	ld [wCurEnemyLevel], a

@@ -367,28 +367,13 @@ MainInBattleLoop:
 .specialMoveNotUsed
 	callfar SwitchEnemyMon
 .noLinkBattle
-	ld a, [wPlayerSelectedMove]
-	cp QUICK_ATTACK
-	jr nz, .playerDidNotUseQuickAttack
-	ld a, [wEnemySelectedMove]
-	cp QUICK_ATTACK
-	jr z, .compareSpeed  ; if both used Quick Attack
-	jp .playerMovesFirst ; if player used Quick Attack and enemy didn't
-.playerDidNotUseQuickAttack
-	ld a, [wEnemySelectedMove]
-	cp QUICK_ATTACK
-	jr z, .enemyMovesFirst ; if enemy used Quick Attack and player didn't
-	ld a, [wPlayerSelectedMove]
-	cp COUNTER
-	jr nz, .playerDidNotUseCounter
-	ld a, [wEnemySelectedMove]
-	cp COUNTER
+	call HandleMovePriority
+	; c = player priority, e = enemy priority
+	ld a, c
+	cp e
 	jr z, .compareSpeed ; if both used Counter
-	jr .enemyMovesFirst ; if player used Counter and enemy didn't
-.playerDidNotUseCounter
-	ld a, [wEnemySelectedMove]
-	cp COUNTER
-	jr z, .playerMovesFirst ; if enemy used Counter and player didn't
+	jr c, .enemyMovesFirst
+	jr .playerMovesFirst
 .compareSpeed
 	ld de, wBattleMonSpeed ; player speed value
 	ld hl, wEnemyMonSpeed ; enemy speed value
@@ -467,6 +452,50 @@ MainInBattleLoop:
 	call CheckNumAttacksLeft
 	jp MainInBattleLoop
 
+HandleMovePriority:
+; This subroutine modifies registers a, hl, bc, and de
+; The player's priority value will be stored in register c and 
+; the enemy's priority value will be stored in register e.
+; These values will be compared after the 'ret' instruction is called
+
+	ld a, [wPlayerSelectedMove]
+	ld b, a
+	ld hl, PriorityMovesList
+	ld c, 7           ; no priority is 7
+.playerPriorityMoveLoop
+	ld a, [hli]       ; load the move ID from priority list and 
+	                  ; increment address to the priority value address
+	cp b              ; compare with move being used
+	jr z, .playerUsingPriorityMove
+	inc a             ; if at end of list: -1 + 1 = 0xFF + 0x01 = 0
+	jr z, .noPlayerPriorityMove
+	inc hl            ; increment address to the next move
+	jr .playerPriorityMoveLoop
+.playerUsingPriorityMove
+	ld c, [hl]        ; get new priority value 
+.noPlayerPriorityMove
+
+; Now check enemy priority
+	ld a, [wEnemySelectedMove]
+	ld d, a
+	ld hl, PriorityMovesList
+	ld e, 7           ; no priority is 7
+.enemyPriorityMoveLoop
+	ld a, [hli]       ; load the move ID from priority list and
+					  ; increment address to the priority value address
+	cp d              ; compare with move being used
+	jr z, .enemyUsingPriorityMove
+	inc a             ; if at end of list: -1 + 1 = 0xFF + 0x01 = 0
+	jr z, .noEnemyPriorityMove
+	inc hl            ; increment address to the next move
+	jr .enemyPriorityMoveLoop
+.enemyUsingPriorityMove
+	ld e, [hl]        ; get new priority value 
+.noEnemyPriorityMove
+	ret
+
+INCLUDE "data/battle/priority_moves.asm"
+
 HandlePoisonBurnLeechSeed:
 	ld hl, wBattleMonHP
 	ld de, wBattleMonStatus
@@ -490,7 +519,7 @@ HandlePoisonBurnLeechSeed:
 	xor a
 	ld [wAnimationType], a
 	ld a, BURN_PSN_ANIM
-	call PlayMoveAnimation   ; play burn/poison animation
+	call PlayAltAnimation   ; play burn/poison animation
 	pop hl
 	call HandlePoisonBurnLeechSeed_DecreaseOwnHP
 .notBurnedOrPoisoned
@@ -1764,7 +1793,7 @@ SendOutMon:
 	ld a, $1
 	ldh [hWhoseTurn], a
 	ld a, POOF_ANIM
-	call PlayMoveAnimation
+	call PlayAltAnimation
 	hlcoord 4, 11
 	predef AnimateSendingOutMon
 	ld a, [wCurPartySpecies]
@@ -3128,8 +3157,9 @@ PlayerCanExecuteMove:
 	ld hl, ResidualEffects1
 	ld de, 1
 	call IsInArray
-	jp c, JumpMoveEffect ; ResidualEffects1 moves skip damage calculation and accuracy tests
-	                    ; unless executed as part of their exclusive effect functions
+	ld a, [wPlayerMovePower]
+	and a ; check if zero base power
+	jp z, JumpMoveEffect
 	ld a, [wPlayerMoveEffect]
 	ld hl, SpecialEffectsCont
 	ld de, 1
@@ -3198,7 +3228,7 @@ playerCheckIfFlyOrChargeEffect:
 	xor a
 	ld [wAnimationType], a
 	ld a, STATUS_AFFECTED_ANIM
-	call PlayMoveAnimation
+	call PlayAltAnimation
 MirrorMoveCheck:
 	ld a, [wPlayerMoveEffect]
 	cp MIRROR_MOVE_EFFECT
@@ -3218,7 +3248,11 @@ MirrorMoveCheck:
 	ld hl, ResidualEffects2
 	ld de, 1
 	call IsInArray
-	jp c, JumpMoveEffect ; done here after executing effects of ResidualEffects2
+	jp nc, .notResidual2Effect
+	ld a, [wPlayerMovePower]
+	and a ; check if zero base power
+	jp z, JumpMoveEffect
+.notResidual2Effect
 	ld a, [wMoveMissed]
 	and a
 	jr z, .moveDidNotMiss
@@ -3343,7 +3377,7 @@ CheckPlayerStatusConditions:
 	xor a
 	ld [wAnimationType], a
 	ld a, SLP_PLAYER_ANIM
-	call PlayMoveAnimation
+	call PlayAltAnimation
 	ld hl, FastAsleepText
 	call PrintText
 	jr .sleepDone
@@ -3477,7 +3511,7 @@ CheckPlayerStatusConditions:
 	xor a
 	ld [wAnimationType], a
 	ld a, STATUS_AFFECTED_ANIM
-	call PlayMoveAnimation
+	call PlayAltAnimation
 .NotFlyOrChargeEffect
 	ld hl, ExecutePlayerMoveDone
 	jp .returnToHL ; if using a two-turn move, we need to recharge the first turn
@@ -5655,7 +5689,9 @@ EnemyCanExecuteMove:
 	ld hl, ResidualEffects1
 	ld de, $1
 	call IsInArray
-	jp c, JumpMoveEffect
+	ld a, [wEnemyMovePower]
+	and a ; check if zero base power
+	jp z, JumpMoveEffect
 	ld a, [wEnemyMoveEffect]
 	ld hl, SpecialEffectsCont
 	ld de, $1
@@ -5736,7 +5772,7 @@ EnemyCheckIfFlyOrChargeEffect:
 	xor a
 	ld [wAnimationType], a
 	ld a, STATUS_AFFECTED_ANIM
-	call PlayMoveAnimation
+	call PlayAltAnimation
 EnemyCheckIfMirrorMoveEffect:
 	ld a, [wEnemyMoveEffect]
 	cp MIRROR_MOVE_EFFECT
@@ -5754,7 +5790,11 @@ EnemyCheckIfMirrorMoveEffect:
 	ld hl, ResidualEffects2
 	ld de, $1
 	call IsInArray
-	jp c, JumpMoveEffect
+	jp nc, .notResidual2EffectEnemy
+	ld a, [wEnemyMovePower]
+	and a ; check if zero base power
+	jp z, JumpMoveEffect
+.notResidual2EffectEnemy
 	ld a, [wMoveMissed]
 	and a
 	jr z, .moveDidNotMiss
@@ -5828,7 +5868,7 @@ CheckEnemyStatusConditions:
 	xor a
 	ld [wAnimationType], a
 	ld a, SLP_ANIM
-	call PlayMoveAnimation
+	call PlayAltAnimation
 	jr .sleepDone
 .wokeUp
 	ld hl, WokeUpText
@@ -5904,7 +5944,7 @@ CheckEnemyStatusConditions:
 	xor a
 	ld [wAnimationType], a
 	ld a, CONF_ANIM
-	call PlayMoveAnimation
+	call PlayAltAnimation
 	call BattleRandom
 	cp $80
 	jr c, .checkIfTriedToUseDisabledMove
@@ -5989,7 +6029,7 @@ CheckEnemyStatusConditions:
 	xor a
 	ld [wAnimationType], a
 	ld a, STATUS_AFFECTED_ANIM
-	call PlayMoveAnimation
+	call PlayAltAnimation
 .notFlyOrChargeEffect
 	ld hl, ExecuteEnemyMoveDone
 	jp .enemyReturnToHL ; if using a two-turn move, enemy needs to recharge the first turn
@@ -6774,6 +6814,14 @@ PlayMoveAnimation:
 	vc_hook_red Reduce_move_anim_flashing_Confusion
 	call Delay3
 	vc_hook_red Reduce_move_anim_flashing_Psychic
+; set alternative animation ID to be zero so that we use the move animations
+	xor a
+	ld [wAltAnimationID], a
+	predef_jump MoveAnimation
+
+; call this subroutine if we are playing an alternative animation
+PlayAltAnimation:
+	ld [wAltAnimationID], a
 	predef_jump MoveAnimation
 
 InitBattle::

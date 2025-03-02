@@ -10,7 +10,7 @@
 	INCBIN "gfx/pokemon/front/azumarill.pic", 0, 1 ; sprite dimensions
 	dw AzumarillPicFront, AzumarillPicBack
 
-	db TACKLE, SAND_ATTACK, QUICK_ATTACK, WATER_GUN ; level 1 learnset
+	db HYDRO_PUMP, AQUA_JET, CHARM, TAIL_WHIP ; level 1 learnset
 	db GROWTH_FAST ; growth rate
 
 	; tm/hm learnset

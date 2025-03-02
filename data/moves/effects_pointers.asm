@@ -87,4 +87,17 @@ MoveEffectPointerTable:
 	dw LeechSeedEffect           ; LEECH_SEED_EFFECT
 	dw SplashEffect              ; SPLASH_EFFECT
 	dw DisableEffect             ; DISABLE_EFFECT
+	dw StatModifierUpEffect      ; ATTACK_UP_SIDE_EFFECT
+	dw StatModifierUpEffect      ; DEFENSE_UP_SIDE_EFFECT
+	dw StatModifierUpEffect      ; SPEED_UP_SIDE_EFFECT
+	dw StatModifierUpEffect      ; SPECIAL_UP_SIDE_EFFECT
+	dw StatModifierUpEffect      ; ACCURACY_UP_SIDE_EFFECT
+	dw StatModifierUpEffect      ; EVASION_UP_SIDE_EFFECT
+	dw MultipleStatsUpEffect     ; DRAGON_DANCE_EFFECT
+	dw MultipleStatsUpEffect     ; BULK_UP_EFFECT
+	dw MultipleStatsUpEffect     ; QUIVER_DANCE
+	dw BurnEffect                ; BURN_EFFECT
+	dw MultipleStatsUpEffect     ; ALL_STATS_UP_SIDE_EFFECT
+	dw FreezeBurnParalyzeEffect  ; TRI_ATTACK_EFFECT
+	dw TwoToFiveAttacksEffect    ; TRIPLE_KICK_EFFECT
 	assert_table_length NUM_MOVE_EFFECTS

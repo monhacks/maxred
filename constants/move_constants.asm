@@ -170,11 +170,103 @@
 	const SUPER_FANG   ; a2
 	const SLASH        ; a3
 	const SUBSTITUTE   ; a4
-	const STRUGGLE     ; a5
+	const DRAGONBREATH ; a5
+	const OUTRAGE      ; a6
+	const TWISTER      ; a7
+	const SHADOW_BALL  ; a8
+	const MEGAHORN     ; a9
+	const SLUDGE_BOMB  ; aa
+	const ANCIENTPOWER ; ab
+	const GIGA_DRAIN   ; ac
+	const MUD_SLAP     ; ad
+	const SPARK        ; ae
+	const ZAP_CANNON   ; af
+	const FLAME_WHEEL  ; b0
+	const ICY_WIND     ; b1
+	const POWDER_SNOW  ; b2
+	const CROSS_CHOP   ; b3
+	const DYNAMICPUNCH ; b4
+	const MACH_PUNCH   ; b5
+	const TRIPLE_KICK  ; b6
+	const EXTREMESPEED ; b7
+	const SCARY_FACE   ; b8
+	const CRUNCH       ; b9
+	const FEINT_ATTACK ; ba
+	const IRON_TAIL    ; bb
+	const METAL_CLAW   ; bc
+	const STEEL_WING   ; bd
+	const CHARM        ; be
+	const SWEET_KISS   ; bf
+	const DRAGON_DANCE ; c0
+	const SHADOW_PUNCH ; c1
+	const SILVER_WIND  ; c2
+	const ROCK_BLAST   ; c3
+	const ROCK_TOMB    ; c4
+	const BULLET_SEED  ; c5
+	const LEAF_BLADE   ; c6
+	const SAND_TOMB    ; c7
+	const SHOCK_WAVE   ; c8
+	const WILL_O_WISP  ; c9
+	const ICICLE_SPEAR ; ca
+	const SHEER_COLD   ; cb
+	const BULK_UP      ; cc
+	const AERIAL_ACE   ; cd
+	const AIR_CUTTER   ; ce
+	const FEATHERDANCE ; cf
+	const CALM_MIND    ; d0
+	const EXTRASENSORY ; d1
+	const SLACK_OFF    ; d2
+	const WATER_PULSE  ; d3
+	const FAKE_TEARS   ; d4
+	const IRON_DEFENSE ; d5
+	const OMINOUS_WIND ; d6
+	const SHADOW_SNEAK ; d7
+	const X_SCISSOR    ; d8
+	const CROSS_POISON ; d9
+	const GUNK_SHOT    ; da
+	const HEAD_SMASH   ; db
+	const STONE_EDGE   ; dc
+	const POWER_WHIP   ; dd
+	const SEED_BOMB    ; de
+	const CHARGE_BEAM  ; df
+	const ICE_SHARD    ; e0
+	const AIR_SLASH    ; e1
+	const ZEN_HEADBUTT ; e2
+	const DOUBLE_HIT   ; e3
+	const ROCK_CLIMB   ; e4
+	const AQUA_JET     ; e5
+	const DARK_PULSE   ; e6
+	const NASTY_PLOT   ; e7
+	const NIGHT_SLASH  ; e8
+	const BULLET_PUNCH ; e9
+	const IRON_HEAD    ; ea
+	const MAGNET_BOMB  ; eb
+	const QUIVER_DANCE ; ec
+	const FLAME_CHARGE ; ed
+	const INFERNO      ; ee
+	const HURRICANE    ; ef
+	const AUTOTOMIZE   ; f0
+	const BABYDOLLEYES ; f1
+	const DISARM_VOICE ; f2
+	const DRAININGKISS ; f3
+	const FAIRY_WIND   ; f4
+	const MOONBLAST    ; f5
+	const POWERUPPUNCH ; f6
+	const MYSTIC_FIRE  ; f7
+	const TRAILBLAZE   ; f8
+	const CHILLINWATER ; f9
+	const RAZOR_SHELL  ; fa
+	const VOLT_TACKLE  ; fb
+	const POISON_TAIL  ; fc
+	const VITAL_THROW  ; fd
+	const WILD_CHARGE  ; fe
+	const STRUGGLE     ; ff
 DEF NUM_ATTACKS EQU const_value - 1
 
-	; Moves do double duty as animation identifiers.
+	; Separate other battle animations
 
+	const_def
+	const NO_ANIM
 	const SHOWPIC_ANIM
 	const STATUS_AFFECTED_ANIM
 	const ANIM_A8
@@ -213,4 +305,4 @@ DEF NUM_ATTACKS EQU const_value - 1
 	const ROCK_ANIM ; throw rock
 	const BAIT_ANIM ; throw bait
 
-DEF NUM_ATTACK_ANIMS EQU const_value - 1
+DEF NUM_ALTERNATIVE_ANIMS EQU const_value - 1

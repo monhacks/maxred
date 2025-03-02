@@ -10,7 +10,7 @@
 	INCBIN "gfx/pokemon/front/magnezone.pic", 0, 1 ; sprite dimensions
 	dw MagnezonePicFront, MagnezonePicBack
 
-	db TACKLE, SAND_ATTACK, QUICK_ATTACK, WATER_GUN ; level 1 learnset
+	db THUNDERSHOCK, SONICBOOM, MAGNET_BOMB, ZAP_CANNON ; level 1 learnset
 	db GROWTH_MEDIUM_FAST ; growth rate
 
 	; tm/hm learnset

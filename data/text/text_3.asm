@@ -93,6 +93,44 @@ _FireDefrostedText::
 	line "<TARGET>!"
 	prompt
 
+_DragonDanceText::
+	text "<USER>'s"
+	line "ATTACK rose!"
+
+	para "<USER>'s"
+	line "SPEED rose!"
+	prompt
+
+_BulkUpText::
+	text "<USER>'s"
+	line "ATTACK rose!"
+
+	para "<USER>'s"
+	line "DEFENSE rose!"
+	prompt
+
+_QuiverDanceText::
+	text "<USER>'s"
+	line "ATTACK rose!"
+
+	para "<USER>'s"
+	line "SPEED rose!"
+	prompt
+
+_OmniBoostText::
+	text "<USER>'s"
+	line "ATTACK rose!"
+
+	para "<USER>'s"
+	line "DEFENSE rose!"
+
+	para "<USER>'s"
+	line "SPEED rose!"
+
+	para "<USER>'s"
+	line "SPECIAL rose!"
+	prompt
+
 _MonsStatsRoseText::
 	text "<USER>'s"
 	line "@"
