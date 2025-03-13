@@ -14,10 +14,10 @@
 	db GROWTH_SLOW ; growth rate
 
 	; tm/hm learnset
-	tmhm TOXIC,        BODY_SLAM,    TAKE_DOWN,    DOUBLE_EDGE,  BUBBLEBEAM,   \
-	     WATER_GUN,    ICE_BEAM,     BLIZZARD,     HYPER_BEAM,   RAGE,         \
-	     MIMIC,        DOUBLE_TEAM,  REFLECT,      BIDE,         SWIFT,        \
-	     SKULL_BASH,   REST,         SUBSTITUTE,   SURF
+	tmhm TOXIC,        SLUDGE_BOMB,  BODY_SLAM,    DOUBLE_EDGE,  MUD_SLAP,     \
+	     COUNTER,      WILL_O_WISP,  SOLARBEAM,    DIG,          MIMIC,        \
+	     DOUBLE_TEAM,  FLAMETHROWER, FIRE_BLAST,   IRON_TAIL,    DARK_PULSE,   \
+	     SHADOW_BALL,  REST,         SUBSTITUTE,   STRENGTH
 	; end
 
 	db BANK(HoundourPicFront)

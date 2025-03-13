@@ -14,9 +14,9 @@
 	db GROWTH_MEDIUM_FAST ; growth rate
 
 	; tm/hm learnset
-	tmhm RAZOR_WIND,   WHIRLWIND,    TOXIC,        TAKE_DOWN,    DOUBLE_EDGE,  \
-	     RAGE,         MIMIC,        DOUBLE_TEAM,  BIDE,         SWIFT,        \
-	     SKY_ATTACK,   REST,         SUBSTITUTE,   FLY
+	tmhm AERIAL_ACE,   SWORDS_DANCE, FOCUS_ENERGY, TOXIC,        DOUBLE_EDGE,  \
+	     MUD_SLAP,     MIMIC,        DOUBLE_TEAM,  REST,         SUBSTITUTE,   \
+	     FLY
 	; end
 
 	db BANK(SpearowPicFront)

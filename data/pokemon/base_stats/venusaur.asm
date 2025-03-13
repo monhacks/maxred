@@ -14,10 +14,10 @@
 	db GROWTH_MEDIUM_SLOW ; growth rate
 
 	; tm/hm learnset
-	tmhm SWORDS_DANCE, TOXIC,        BODY_SLAM,    TAKE_DOWN,    DOUBLE_EDGE,  \
-	     HYPER_BEAM,   RAGE,         MEGA_DRAIN,   SOLARBEAM,    MIMIC,        \
-	     DOUBLE_TEAM,  REFLECT,      BIDE,         REST,         SUBSTITUTE,   \
-	     CUT
+	tmhm SWORDS_DANCE, TOXIC,        SLUDGE_BOMB,  BODY_SLAM,    ROCK_CLIMB,   \
+	     DOUBLE_EDGE,  HYPER_BEAM,   MUD_SLAP,     GIGA_DRAIN,   SOLARBEAM,    \
+	     EARTHQUAKE,   LIGHT_SCREEN, MIMIC,        DOUBLE_TEAM,  REFLECT,      \
+	     REST,         SUBSTITUTE,   CUT,          STRENGTH,     FLASH
 	; end
 
 	db BANK(VenusaurPicFront)

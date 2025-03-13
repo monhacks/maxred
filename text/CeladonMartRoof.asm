@@ -14,22 +14,22 @@ _CeladonMartRoofLittleGirlYayFreshWaterText::
 	line "from me!@"
 	text_end
 
-_CeladonMartRoofLittleGirlReceivedTM13Text::
+_CeladonMartRoofLittleGirlReceivedTM41Text::
 	text "<PLAYER> received"
 	line "@"
 	text_ram wStringBuffer
 	text "!@"
 	text_end
 
-_CeladonMartRoofLittleGirlTM13ExplanationText::
+_CeladonMartRoofLittleGirlTM41ExplanationText::
 	text_start
 
 	para "@"
 	text_ram wStringBuffer
 	text " contains"
-	line "ICE BEAM!"
+	line "DARK PULSE!"
 
-	para "It can freeze the"
+	para "It can spook the"
 	line "target sometimes!@"
 	text_end
 
@@ -44,22 +44,22 @@ _CeladonMartRoofLittleGirlYaySodaPopText::
 	line "from me!@"
 	text_end
 
-_CeladonMartRoofLittleGirlReceivedTM48Text::
+_CeladonMartRoofLittleGirlReceivedTM09Text::
 	text "<PLAYER> received"
 	line "@"
 	text_ram wStringBuffer
 	text "!@"
 	text_end
 
-_CeladonMartRoofLittleGirlTM48ExplanationText::
+_CeladonMartRoofLittleGirlTM09ExplanationText::
 	text_start
 
 	para "@"
 	text_ram wStringBuffer
 	text " contains"
-	line "ROCK SLIDE!"
+	line "ROCK CLIMB!"
 
-	para "It can spook the"
+	para "It can confuse the"
 	line "target sometimes!@"
 	text_end
 
@@ -84,6 +84,10 @@ _CeladonMartRoofLittleGirlTM49ExplanationText::
 
 	para "TM49 contains"
 	line "TRI ATTACK!@"
+
+	para "It can paralyze,"
+	line "burn, or freeze"
+	line "the target!@"
 	text_end
 
 _CeladonMartRoofLittleGirlNoRoomText::

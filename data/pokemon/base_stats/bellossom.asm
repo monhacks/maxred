@@ -14,9 +14,10 @@
 	db GROWTH_MEDIUM_SLOW ; growth rate
 
 	; tm/hm learnset
-	tmhm RAZOR_WIND,   WHIRLWIND,    TOXIC,        TAKE_DOWN,    DOUBLE_EDGE,  \
-	     HYPER_BEAM,   RAGE,         MEGA_DRAIN,   MIMIC,        DOUBLE_TEAM,  \
-	     BIDE,         SWIFT,        REST,         SUBSTITUTE
+	tmhm SWORDS_DANCE, TOXIC,        SLUDGE_BOMB,  BODY_SLAM,    DOUBLE_EDGE,  \
+	     HYPER_BEAM,   GIGA_DRAIN,   SOLARBEAM,    LIGHT_SCREEN, MIMIC,        \
+	     DOUBLE_TEAM,  REFLECT,      REST,         SUBSTITUTE,   MOONBLAST,    \
+	     CUT,          FLASH
 	; end
 
 	db BANK(BellossomPicFront)

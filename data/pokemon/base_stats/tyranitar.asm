@@ -14,11 +14,13 @@
 	db GROWTH_SLOW ; growth rate
 
 	; tm/hm learnset
-	tmhm MEGA_PUNCH,   TOXIC,        BODY_SLAM,    TAKE_DOWN,    DOUBLE_EDGE,  \
-	     SUBMISSION,   COUNTER,      SEISMIC_TOSS, RAGE,         EARTHQUAKE,   \
-	     FISSURE,      DIG,          MIMIC,        DOUBLE_TEAM,  BIDE,         \
-	     METRONOME,    SELFDESTRUCT, FIRE_BLAST,   REST,         EXPLOSION,    \
-	     ROCK_SLIDE,   SUBSTITUTE,   STRENGTH
+	tmhm DYNAMICPUNCH, AERIAL_ACE,   FOCUS_ENERGY, TOXIC,        BODY_SLAM,    \
+	     ROCK_CLIMB,   DOUBLE_EDGE,  WATER_PULSE,  ICE_BEAM,     BLIZZARD,     \
+	     HYPER_BEAM,   MUD_SLAP,     COUNTER,      SEISMIC_TOSS, DRAGONBREATH, \
+	     THUNDERBOLT,  THUNDER,      EARTHQUAKE,   FISSURE,      DIG,          \
+	     MIMIC,        DOUBLE_TEAM,  ROCK_TOMB,    METRONOME,    FLAMETHROWER, \
+	     FIRE_BLAST,   IRON_TAIL,    DARK_PULSE,   REST,         THUNDER_WAVE, \
+	     ROCK_SLIDE,   SUBSTITUTE,   CUT,          SURF,         STRENGTH
 	; end
 
 	db BANK(TyranitarPicFront)

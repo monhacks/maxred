@@ -14,11 +14,11 @@
 	db GROWTH_MEDIUM_SLOW ; growth rate
 
 	; tm/hm learnset
-	tmhm MEGA_PUNCH,   SWORDS_DANCE, MEGA_KICK,    TOXIC,        BODY_SLAM,    \
-	     TAKE_DOWN,    DOUBLE_EDGE,  SUBMISSION,   COUNTER,      SEISMIC_TOSS, \
-	     RAGE,         DRAGON_RAGE,  DIG,          MIMIC,        DOUBLE_TEAM,  \
-	     REFLECT,      BIDE,         FIRE_BLAST,   SWIFT,        SKULL_BASH,   \
-	     REST,         SUBSTITUTE,   CUT,          STRENGTH
+	tmhm DYNAMICPUNCH, SWORDS_DANCE, FOCUS_ENERGY, TOXIC,        BODY_SLAM,    \
+	     DOUBLE_EDGE,  MUD_SLAP,     COUNTER,      SEISMIC_TOSS, WILL_O_WISP,  \
+	     DRAGONBREATH, DIG,          MIMIC,        DOUBLE_TEAM,  ROCK_TOMB,    \
+	     FLAMETHROWER, FIRE_BLAST,   IRON_TAIL,    REST,         ROCK_SLIDE,   \
+	     SUBSTITUTE,   CUT,          STRENGTH
 	; end
 
 	db BANK(CharmanderPicFront)

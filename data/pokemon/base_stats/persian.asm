@@ -14,10 +14,11 @@
 	db GROWTH_MEDIUM_FAST ; growth rate
 
 	; tm/hm learnset
-	tmhm TOXIC,        BODY_SLAM,    TAKE_DOWN,    DOUBLE_EDGE,  BUBBLEBEAM,   \
-	     WATER_GUN,    HYPER_BEAM,   PAY_DAY,      RAGE,         THUNDERBOLT,  \
-	     THUNDER,      MIMIC,        DOUBLE_TEAM,  BIDE,         SWIFT,        \
-	     SKULL_BASH,   REST,         SUBSTITUTE
+	tmhm AERIAL_ACE,   FOCUS_ENERGY, TOXIC,        BODY_SLAM,    DOUBLE_EDGE,  \
+	     WATER_PULSE,  CHILLINWATER, HYPER_BEAM,   MUD_SLAP,     THUNDERBOLT,  \
+	     THUNDER,      DIG,          MIMIC,        DOUBLE_TEAM,  IRON_TAIL,    \
+	     DARK_PULSE,   SHADOW_BALL,  REST,         SUBSTITUTE,   CUT,          \
+	     FLASH
 	; end
 
 	db BANK(PersianPicFront)

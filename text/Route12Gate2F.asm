@@ -10,14 +10,14 @@ _Route12Gate2FBrunetteGirlYouCanHaveThisText::
 
 _Route12Gate2FBrunetteGirlReceivedTM39Text::
 	text "<PLAYER> received"
-	line "TM39!@"
+	line "TM02!@"
 	text_end
 
 _Route12Gate2FBrunetteGirlTM39ExplanationText::
-	text "TM39 is a move"
-	line "called SWIFT."
+	text "TM39 contains"
+	line "AERIAL ACE."
 
-	para "It's very accurate,"
+	para "It never misses,"
 	line "so use it during"
 	cont "battles you can't"
 	cont "afford to lose."

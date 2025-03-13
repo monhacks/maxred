@@ -14,10 +14,10 @@
 	db GROWTH_MEDIUM_SLOW ; growth rate
 
 	; tm/hm learnset
-	tmhm TOXIC,        BODY_SLAM,    TAKE_DOWN,    DOUBLE_EDGE,  BUBBLEBEAM,   \
-	     WATER_GUN,    ICE_BEAM,     BLIZZARD,     HYPER_BEAM,   RAGE,         \
-	     MIMIC,        DOUBLE_TEAM,  REFLECT,      BIDE,         SWIFT,        \
-	     SKULL_BASH,   REST,         SUBSTITUTE,   SURF
+	tmhm AERIAL_ACE,   FOCUS_ENERGY, TOXIC,        DOUBLE_EDGE,  HYPER_BEAM,   \
+	     MUD_SLAP,     WILL_O_WISP,  PSYCHIC_M,    MIMIC,        DOUBLE_TEAM,  \
+	     DARK_PULSE,   SHADOW_BALL,  HURRICANE,    REST,         THUNDER_WAVE, \
+	     CALM_MIND,    TRI_ATTACK,   SUBSTITUTE,   FLY
 	; end
 
 	db BANK(HonchkrowPicFront)

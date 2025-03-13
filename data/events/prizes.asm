@@ -55,13 +55,13 @@ ENDC
 	db "@"
 
 PrizeMenuTMsEntries:
-	db TM_DRAGON_RAGE
-	db TM_HYPER_BEAM
-	db TM_SUBSTITUTE
+	db TM_ICE_BEAM
+	db TM_THUNDERBOLT
+	db TM_FLAMETHROWER
 	db "@"
 
 PrizeMenuTMsCost:
-	bcd2 3300
-	bcd2 5500
-	bcd2 7700
+	bcd2 5000
+	bcd2 5000
+	bcd2 5000
 	db "@"

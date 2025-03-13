@@ -14,10 +14,11 @@
 	db GROWTH_FAST ; growth rate
 
 	; tm/hm learnset
-	tmhm TOXIC,        BODY_SLAM,    TAKE_DOWN,    DOUBLE_EDGE,  BUBBLEBEAM,   \
-	     WATER_GUN,    ICE_BEAM,     BLIZZARD,     HYPER_BEAM,   RAGE,         \
-	     MIMIC,        DOUBLE_TEAM,  REFLECT,      BIDE,         SWIFT,        \
-	     SKULL_BASH,   REST,         SUBSTITUTE,   SURF
+	tmhm AERIAL_ACE,   TOXIC,        DOUBLE_EDGE,  CHARGE_BEAM,  WILL_O_WISP,  \
+	     GIGA_DRAIN,   THUNDERBOLT,  THUNDER,      PSYCHIC_M,    LIGHT_SCREEN, \
+	     MIMIC,        DOUBLE_TEAM,  REFLECT,      METRONOME,    DARK_PULSE,   \
+	     SHADOW_BALL,  REST,         THUNDER_WAVE, CALM_MIND,    SUBSTITUTE,   \
+	     MOONBLAST,    FLASH
 	; end
 
 	db BANK(MisdreavusPicFront)

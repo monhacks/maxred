@@ -14,10 +14,11 @@
 	db GROWTH_MEDIUM_SLOW ; growth rate
 
 	; tm/hm learnset
-	tmhm TOXIC,        BODY_SLAM,    TAKE_DOWN,    DOUBLE_EDGE,  BUBBLEBEAM,   \
-	     WATER_GUN,    ICE_BEAM,     BLIZZARD,     HYPER_BEAM,   RAGE,         \
-	     MIMIC,        DOUBLE_TEAM,  REFLECT,      BIDE,         SWIFT,        \
-	     SKULL_BASH,   REST,         SUBSTITUTE,   SURF
+	tmhm AERIAL_ACE,   SWORDS_DANCE, TOXIC,        SLUDGE_BOMB,  DOUBLE_EDGE,  \
+	     HYPER_BEAM,   COUNTER,      GIGA_DRAIN,   EARTHQUAKE,   FISSURE,      \
+	     DIG,          MIMIC,        DOUBLE_TEAM,  ROCK_TOMB,    X_SCISSOR,    \
+	     IRON_TAIL,    DARK_PULSE,   REST,         ROCK_SLIDE,   SUBSTITUTE,   \
+	     CUT,          STRENGTH
 	; end
 
 	db BANK(GliscorPicFront)

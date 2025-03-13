@@ -14,10 +14,11 @@
 	db GROWTH_MEDIUM_FAST ; growth rate
 
 	; tm/hm learnset
-	tmhm TOXIC,        BODY_SLAM,    TAKE_DOWN,    DOUBLE_EDGE,  BUBBLEBEAM,   \
-	     WATER_GUN,    ICE_BEAM,     BLIZZARD,     HYPER_BEAM,   RAGE,         \
-	     MIMIC,        DOUBLE_TEAM,  REFLECT,      BIDE,         SWIFT,        \
-	     SKULL_BASH,   REST,         SUBSTITUTE,   SURF
+	tmhm DYNAMICPUNCH, TOXIC,        BODY_SLAM,    DOUBLE_EDGE,  HYPER_BEAM,   \
+	     MUD_SLAP,     COUNTER,      SEISMIC_TOSS, EARTHQUAKE,   FISSURE,      \
+	     DIG,          MIMIC,        DOUBLE_TEAM,  ROCK_TOMB,    METRONOME,    \
+	     SELFDESTRUCT, REST,         CALM_MIND,    EXPLOSION,    ROCK_SLIDE,   \
+	     SUBSTITUTE,   STRENGTH
 	; end
 
 	db BANK(SudowoodoPicFront)

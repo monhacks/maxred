@@ -14,9 +14,9 @@
 	db GROWTH_MEDIUM_FAST ; growth rate
 
 	; tm/hm learnset
-	tmhm TOXIC,        TAKE_DOWN,    DOUBLE_EDGE,  RAGE,         THUNDERBOLT,  \
-	     THUNDER,      TELEPORT,     MIMIC,        DOUBLE_TEAM,  REFLECT,      \
-	     BIDE,         SWIFT,        REST,         THUNDER_WAVE, SUBSTITUTE,   \
+	tmhm TOXIC,        DOUBLE_EDGE,  CHARGE_BEAM,  THUNDERBOLT,  THUNDER,      \
+	     LIGHT_SCREEN, MIMIC,        DOUBLE_TEAM,  REFLECT,      SELFDESTRUCT, \
+	     REST,         THUNDER_WAVE, EXPLOSION,    TRI_ATTACK,   SUBSTITUTE,   \
 	     FLASH
 	; end
 

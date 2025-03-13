@@ -24,7 +24,7 @@
 ; Viridian City events
 	const_next $28
 	const EVENT_VIRIDIAN_GYM_OPEN
-	const EVENT_GOT_TM42
+	const EVENT_GOT_TM50
 	const_skip 14
 	const EVENT_OAK_GOT_PARCEL
 	const EVENT_GOT_OAKS_PARCEL
@@ -116,10 +116,10 @@
 
 ; Celadon City events
 	const_next $180
-	const EVENT_GOT_TM41
+	const EVENT_GOT_TM42
 	const_skip 11
-	const EVENT_GOT_TM13
-	const EVENT_GOT_TM48
+	const EVENT_GOT_TM41
+	const EVENT_GOT_TM09
 	const EVENT_GOT_TM49
 	const EVENT_GOT_TM18
 	const_skip 24
@@ -195,15 +195,13 @@
 	const_next $340
 	const EVENT_GOT_TM31
 	const_skip 15
-	const EVENT_DEFEATED_FIGHTING_DOJO
+	const EVENT_GOT_TM01
 	const EVENT_BEAT_KARATE_MASTER
 	const EVENT_BEAT_FIGHTING_DOJO_TRAINER_0
 	const EVENT_BEAT_FIGHTING_DOJO_TRAINER_1
 	const EVENT_BEAT_FIGHTING_DOJO_TRAINER_2
 	const EVENT_BEAT_FIGHTING_DOJO_TRAINER_3
-	const EVENT_GOT_HITMONLEE
-	const EVENT_GOT_HITMONCHAN
-	const_skip 8
+	const_skip 10
 	const EVENT_GOT_TM46
 	const EVENT_BEAT_SABRINA
 	const EVENT_BEAT_SAFFRON_GYM_TRAINER_0

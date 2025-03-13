@@ -1086,7 +1086,11 @@ wItemList:: ds 16
 wListPointer:: dw
 
 ; used to store pointers, but never read
-wUnusedNamePointer:: dw
+wUnusedNamePointer::
+; 2 bytes
+; used to store pointers, but never read
+; joenote - used as a temp location for sorting through name data
+	ds 2
 
 wItemPrices:: dw
 

@@ -14,10 +14,10 @@
 	db GROWTH_SLOW; growth rate
 
 	; tm/hm learnset
-	tmhm TOXIC,        BODY_SLAM,    TAKE_DOWN,    DOUBLE_EDGE,  BUBBLEBEAM,   \
-	     WATER_GUN,    ICE_BEAM,     BLIZZARD,     HYPER_BEAM,   RAGE,         \
-	     MIMIC,        DOUBLE_TEAM,  REFLECT,      BIDE,         SWIFT,        \
-	     SKULL_BASH,   REST,         SUBSTITUTE,   SURF
+	tmhm TOXIC,        BODY_SLAM,    ROCK_CLIMB,   DOUBLE_EDGE,  ICE_BEAM,     \
+	     BLIZZARD,     MUD_SLAP,     EARTHQUAKE,   FISSURE,      DIG,          \
+	     LIGHT_SCREEN, MIMIC,        DOUBLE_TEAM,  REFLECT,      ROCK_TOMB,    \
+	     REST,         ROCK_SLIDE,   SUBSTITUTE,   STRENGTH
 	; end
 
 	db BANK(PiloswinePicFront)

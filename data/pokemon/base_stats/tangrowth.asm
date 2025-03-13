@@ -14,10 +14,11 @@
 	db GROWTH_MEDIUM_FAST ; growth rate
 
 	; tm/hm learnset
-	tmhm SWORDS_DANCE, TOXIC,        BODY_SLAM,    TAKE_DOWN,    DOUBLE_EDGE,  \
-	     HYPER_BEAM,   RAGE,         MEGA_DRAIN,   SOLARBEAM,    MIMIC,        \
-	     DOUBLE_TEAM,  BIDE,         SKULL_BASH,   REST,         SUBSTITUTE,   \
-	     CUT
+	tmhm DYNAMICPUNCH, AERIAL_ACE,   SWORDS_DANCE, TOXIC,        SLUDGE_BOMB,  \
+	     BODY_SLAM,    DOUBLE_EDGE,  HYPER_BEAM,   MUD_SLAP,     GIGA_DRAIN,   \
+	     SOLARBEAM,    EARTHQUAKE,   MIMIC,        DOUBLE_TEAM,  REFLECT,      \
+	     ROCK_TOMB,    REST,         ROCK_SLIDE,   SUBSTITUTE,   CUT,          \
+	     STRENGTH,     FLASH
 	; end
 
 	db BANK(TangrowthPicFront)

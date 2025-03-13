@@ -14,10 +14,11 @@
 	db GROWTH_MEDIUM_FAST ; growth rate
 
 	; tm/hm learnset
-	tmhm TOXIC,        BODY_SLAM,    TAKE_DOWN,    DOUBLE_EDGE,  BUBBLEBEAM,   \
-	     WATER_GUN,    ICE_BEAM,     BLIZZARD,     HYPER_BEAM,   RAGE,         \
-	     MIMIC,        DOUBLE_TEAM,  REFLECT,      BIDE,         SWIFT,        \
-	     SKULL_BASH,   REST,         SUBSTITUTE,   SURF
+	tmhm TOXIC,        BODY_SLAM,    ROCK_CLIMB,   DOUBLE_EDGE,  HYPER_BEAM,   \
+	     MUD_SLAP,     DRAGONBREATH, EARTHQUAKE,   FISSURE,      DIG,          \
+	     MIMIC,        DOUBLE_TEAM,  ROCK_TOMB,    SELFDESTRUCT, IRON_TAIL,    \
+	     DARK_PULSE,   REST,         EXPLOSION,    ROCK_SLIDE,   SUBSTITUTE,   \
+	     CUT,          STRENGTH
 	; end
 
 	db BANK(SteelixPicFront)

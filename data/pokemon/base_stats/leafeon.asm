@@ -14,10 +14,11 @@
 	db GROWTH_MEDIUM_FAST ; growth rate
 
 	; tm/hm learnset
-	tmhm TOXIC,        BODY_SLAM,    TAKE_DOWN,    DOUBLE_EDGE,  BUBBLEBEAM,   \
-	     WATER_GUN,    ICE_BEAM,     BLIZZARD,     HYPER_BEAM,   RAGE,         \
-	     MIMIC,        DOUBLE_TEAM,  REFLECT,      BIDE,         SWIFT,        \
-	     SKULL_BASH,   REST,         SUBSTITUTE,   SURF
+	tmhm AERIAL_ACE,   SWORDS_DANCE, TOXIC,        BODY_SLAM,    DOUBLE_EDGE,  \
+	     HYPER_BEAM,   MUD_SLAP,     GIGA_DRAIN,   SOLARBEAM,    DIG,          \
+	     MIMIC,        DOUBLE_TEAM,  REFLECT,      METRONOME,    X_SCISSOR,    \
+	     IRON_TAIL,    SHADOW_BALL,  REST,         SUBSTITUTE,   CUT,          \
+	     STRENGTH,     FLASH
 	; end
 
 	db BANK(LeafeonPicFront)
