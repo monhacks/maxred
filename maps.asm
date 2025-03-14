@@ -822,9 +822,11 @@ HallOfFame_Blocks: INCBIN "maps/HallOfFame.blk"
 
 SECTION "Maps 15", ROMX
 
-SaffronMart_Blocks:
+SaffronMart_Blocks: INCBIN "maps/SaffronMart.blk"
+
 LavenderMart_Blocks:
-CeruleanMart_Blocks:
+CeruleanMart_Blocks: INCBIN "maps/CeruleanMart.blk"
+
 VermilionMart_Blocks: INCBIN "maps/VermilionMart.blk"
 
 CopycatsHouse2F_Blocks:
@@ -1099,7 +1101,8 @@ SECTION "Maps 19", ROMX
 
 CopycatsHouse1F_Blocks: INCBIN "maps/CopycatsHouse1F.blk"
 
-CinnabarMart_Blocks:
+CinnabarMart_Blocks: INCBIN "maps/CinnabarMart.blk"
+
 PewterMart_Blocks: INCBIN "maps/PewterMart.blk"
 
 FuchsiaBillsGrandpasHouse_Blocks: INCBIN "maps/FuchsiaBillsGrandpasHouse.blk"

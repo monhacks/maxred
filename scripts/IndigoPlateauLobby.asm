@@ -20,6 +20,8 @@ IndigoPlateauLobby_TextPointers:
 	dw_const IndigoPlateauLobbyGymGuideText,         TEXT_INDIGOPLATEAULOBBY_GYM_GUIDE
 	dw_const IndigoPlateauLobbyCooltrainerFText,     TEXT_INDIGOPLATEAULOBBY_COOLTRAINER_F
 	dw_const IndigoPlateauLobbyClerkText,            TEXT_INDIGOPLATEAULOBBY_CLERK
+	dw_const IndigoPlateauLobbyClerkTM1Text,         TEXT_INDIGOPLATEAULOBBY_CLERK_TM1
+	dw_const IndigoPlateauLobbyClerkTM2Text,         TEXT_INDIGOPLATEAULOBBY_CLERK_TM2
 	dw_const IndigoPlateauLobbyLinkReceptionistText, TEXT_INDIGOPLATEAULOBBY_LINK_RECEPTIONIST
 
 IndigoPlateauLobbyNurseText:
@@ -37,4 +39,10 @@ IndigoPlateauLobbyLinkReceptionistText:
 	script_cable_club_receptionist
 
 IndigoPlateauLobbyClerkText:
-	script_mart ULTRA_BALL, GREAT_BALL, FULL_RESTORE, MAX_POTION, FULL_HEAL, REVIVE, MAX_REPEL
+	script_mart ULTRA_BALL, MAX_POTION, FULL_RESTORE, REVIVE, MAX_REVIVE, ICE_HEAL, FULL_HEAL, ESCAPE_ROPE, MAX_REPEL, X_SPECIAL, GUARD_SPEC, DIRE_HIT
+
+IndigoPlateauLobbyClerkTM1Text:
+	script_mart TM_SOLARBEAM, TM_HURRICANE, TM_FIRE_BLAST, TM_THUNDER, TM_BLIZZARD, TM_HYPER_BEAM
+
+IndigoPlateauLobbyClerkTM2Text:
+	script_mart TM_SUBSTITUTE, TM_SWORDS_DANCE, TM_IRON_TAIL, TM_EARTHQUAKE, TM_EXPLOSION, TM_FISSURE

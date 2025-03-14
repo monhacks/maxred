@@ -191,7 +191,7 @@ DEF FIRST_INDOOR_MAP EQU const_value
 	map_const CINNABAR_LAB_METRONOME_ROOM,    4,  4 ; $A9
 	map_const CINNABAR_LAB_FOSSIL_ROOM,       4,  4 ; $AA
 	map_const CINNABAR_POKECENTER,            7,  4 ; $AB
-	map_const CINNABAR_MART,                  4,  4 ; $AC
+	map_const CINNABAR_MART,                  4,  5 ; $AC
 	map_const CINNABAR_MART_COPY,             4,  4 ; $AD
 	map_const INDIGO_PLATEAU_LOBBY,           8,  6 ; $AE
 	map_const COPYCATS_HOUSE_1F,              4,  4 ; $AF
@@ -199,7 +199,7 @@ DEF FIRST_INDOOR_MAP EQU const_value
 	map_const FIGHTING_DOJO,                  5,  6 ; $B1
 	map_const SAFFRON_GYM,                   10,  9 ; $B2
 	map_const SAFFRON_PIDGEY_HOUSE,           4,  4 ; $B3
-	map_const SAFFRON_MART,                   4,  4 ; $B4
+	map_const SAFFRON_MART,                   4,  5 ; $B4
 	map_const SILPH_CO_1F,                   15,  9 ; $B5
 	map_const SAFFRON_POKECENTER,             7,  4 ; $B6
 	map_const MR_PSYCHICS_HOUSE,              4,  4 ; $B7
