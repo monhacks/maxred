@@ -1357,8 +1357,9 @@ TwoToFiveAttacksEffect:
 	ld a, [hl]
 	cp TWINEEDLE_EFFECT
 	jr z, .twineedle
-	ld a, 3 ; number of hits is always 3 for TRIPLE_KICK_EFFECT
+	ld a, [hl]
 	cp TRIPLE_KICK_EFFECT
+	ld a, 3 ; number of hits is always 3 for TRIPLE_KICK_EFFECT
 	jr z, .saveNumberOfHits
 	cp ATTACK_TWICE_EFFECT
 	ld a, $2 ; number of hits is always 2 for ATTACK_TWICE_EFFECT
