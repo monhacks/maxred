@@ -105,7 +105,7 @@ WildDataPointers:
 	dw NothingWildMons
 	dw NothingWildMons
 	dw NothingWildMons
-	dw NothingWildMons
+	dw RockTunnelB2FWildMons
 	dw NothingWildMons
 	dw NothingWildMons
 	dw VictoryRoad1FWildMons
@@ -280,6 +280,7 @@ INCLUDE "data/wild/maps/Route6.asm"
 INCLUDE "data/wild/maps/Route11.asm"
 INCLUDE "data/wild/maps/RockTunnel1F.asm"
 INCLUDE "data/wild/maps/RockTunnelB1F.asm"
+INCLUDE "data/wild/maps/RockTunnelB2F.asm"
 INCLUDE "data/wild/maps/Route10.asm"
 INCLUDE "data/wild/maps/Route12.asm"
 INCLUDE "data/wild/maps/Route8.asm"

@@ -369,6 +369,11 @@ INCLUDE "scripts/RockTunnelB1F.asm"
 INCLUDE "data/maps/objects/RockTunnelB1F.asm"
 RockTunnelB1F_Blocks: INCBIN "maps/RockTunnelB1F.blk"
 
+INCLUDE "data/maps/headers/RockTunnelB2F.asm"
+INCLUDE "data/maps/objects/RockTunnelB2F.asm"
+INCLUDE "scripts/RockTunnelB2F.asm"
+RockTunnelB2F_Blocks: INCBIN "maps/RockTunnelB2F.blk"
+
 INCLUDE "data/maps/headers/SeafoamIslandsB1F.asm"
 INCLUDE "scripts/SeafoamIslandsB1F.asm"
 INCLUDE "data/maps/objects/SeafoamIslandsB1F.asm"

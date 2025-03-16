@@ -1967,9 +1967,9 @@ wRoute17CurScript:: db
 wRoute19CurScript:: db
 wRoute21CurScript:: db
 wSafariZoneGateCurScript:: db
+wRockTunnelB2FCurScript:: db
 wRockTunnelB1FCurScript:: db
 wRockTunnel1FCurScript:: db
-	ds 1
 wRoute11CurScript:: db
 wRoute12CurScript:: db
 wRoute15CurScript:: db

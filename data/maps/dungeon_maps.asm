@@ -8,6 +8,7 @@
 DungeonMaps1:
 	db VIRIDIAN_FOREST
 	db ROCK_TUNNEL_1F
+	db ROCK_TUNNEL_B2F
 	db SEAFOAM_ISLANDS_1F
 	db ROCK_TUNNEL_B1F
 	db -1 ; end
