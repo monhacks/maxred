@@ -108,7 +108,7 @@ MapHeaderBanks::
 	db BANK(SSAnneB1FRooms_h)
 	db BANK(RockTunnelB2F_h)
 	db BANK(SafariZoneNortheast_h)
-	db $1D ; UNUSED_MAP_6B
+	db BANK(SafariZoneNERestHouse_h)
 	db BANK(VictoryRoad1F_h)
 	db $1D ; UNUSED_MAP_6D
 	db $1D ; UNUSED_MAP_6E

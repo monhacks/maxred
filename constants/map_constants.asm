@@ -126,7 +126,7 @@ DEF FIRST_INDOOR_MAP EQU const_value
 	map_const SS_ANNE_B1F_ROOMS,             12,  8 ; $68
 	map_const ROCK_TUNNEL_B2F,               20, 18 ; $69
 	map_const SAFARI_ZONE_NORTHEAST,         15, 13 ; $6A
-	map_const UNUSED_MAP_6B,                  0,  0 ; $6B
+	map_const SAFARI_ZONE_NE_REST_HOUSE,      4,  4 ; $6B
 	map_const VICTORY_ROAD_1F,               10,  9 ; $6C
 	map_const UNUSED_MAP_6D,                  0,  0 ; $6D
 	map_const UNUSED_MAP_6E,                  0,  0 ; $6E

@@ -254,6 +254,7 @@ LavenderTown_Blocks: INCBIN "maps/LavenderTown.blk"
 
 ViridianPokecenter_Blocks: INCBIN "maps/ViridianPokecenter.blk"
 
+SafariZoneNERestHouse_Blocks:
 SafariZoneCenterRestHouse_Blocks:
 SafariZoneWestRestHouse_Blocks:
 SafariZoneEastRestHouse_Blocks:
@@ -353,6 +354,10 @@ INCLUDE "data/maps/objects/SafariZoneEastRestHouse.asm"
 INCLUDE "data/maps/headers/SafariZoneNorthRestHouse.asm"
 INCLUDE "scripts/SafariZoneNorthRestHouse.asm"
 INCLUDE "data/maps/objects/SafariZoneNorthRestHouse.asm"
+
+INCLUDE "data/maps/headers/SafariZoneNERestHouse.asm"
+INCLUDE "scripts/SafariZoneNERestHouse.asm"
+INCLUDE "data/maps/objects/SafariZoneNERestHouse.asm"
 
 INCLUDE "data/maps/headers/CeruleanCave2F.asm"
 INCLUDE "scripts/CeruleanCave2F.asm"

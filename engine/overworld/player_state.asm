@@ -220,6 +220,8 @@ PrintSafariZoneSteps::
 	ld a, [wCurMap]
 	cp SAFARI_ZONE_NORTHEAST
 	jr z, .inSafariZone
+	cp SAFARI_ZONE_NE_REST_HOUSE
+	jr z, .inSafariZone
 	cp SAFARI_ZONE_EAST
 	ret c
 	cp CERULEAN_CAVE_2F
