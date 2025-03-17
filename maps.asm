@@ -569,6 +569,11 @@ INCLUDE "scripts/SafariZoneWest.asm"
 INCLUDE "data/maps/objects/SafariZoneWest.asm"
 SafariZoneWest_Blocks: INCBIN "maps/SafariZoneWest.blk"
 
+INCLUDE "data/maps/headers/SafariZoneNortheast.asm"
+INCLUDE "scripts/SafariZoneNortheast.asm"
+INCLUDE "data/maps/objects/SafariZoneNortheast.asm"
+SafariZoneNortheast_Blocks: INCBIN "maps/SafariZoneNortheast.blk"
+
 INCLUDE "data/maps/headers/SafariZoneSecretHouse.asm"
 INCLUDE "scripts/SafariZoneSecretHouse.asm"
 INCLUDE "data/maps/objects/SafariZoneSecretHouse.asm"

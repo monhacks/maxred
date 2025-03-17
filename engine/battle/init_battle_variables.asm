@@ -29,10 +29,13 @@ InitBattleVariables:
 	;inc a ; POUND
 	;ld [wTestBattlePlayerSelectedMove], a
 	ld a, [wCurMap]
+	cp SAFARI_ZONE_NORTHEAST
+	jr z, .inSafariZone
 	cp SAFARI_ZONE_EAST
 	jr c, .notSafariBattle
 	cp SAFARI_ZONE_CENTER_REST_HOUSE
 	jr nc, .notSafariBattle
+.inSafariZone
 	ld a, BATTLE_TYPE_SAFARI
 	ld [wBattleType], a
 .notSafariBattle
