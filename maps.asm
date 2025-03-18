@@ -994,6 +994,11 @@ INCLUDE "scripts/VictoryRoadB1F.asm"
 INCLUDE "data/maps/objects/VictoryRoadB1F.asm"
 VictoryRoadB1F_Blocks: INCBIN "maps/VictoryRoadB1F.blk"
 
+INCLUDE "data/maps/headers/VictoryRoadOaksRoom.asm"
+INCLUDE "scripts/VictoryRoadOaksRoom.asm"
+INCLUDE "data/maps/objects/VictoryRoadOaksRoom.asm"
+VictoryRoadOaksRoom_Blocks: INCBIN "maps/VictoryRoadOaksRoom.blk"
+
 
 SECTION "Maps 17", ROMX
 
