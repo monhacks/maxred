@@ -110,7 +110,7 @@ MapHeaderBanks::
 	db BANK(SafariZoneNortheast_h)
 	db BANK(SafariZoneNERestHouse_h)
 	db BANK(VictoryRoad1F_h)
-	db $1D ; UNUSED_MAP_6D
+	db BANK(VictoryRoadB1F_h)
 	db $1D ; UNUSED_MAP_6E
 	db $1D ; UNUSED_MAP_6F
 	db $1D ; UNUSED_MAP_70

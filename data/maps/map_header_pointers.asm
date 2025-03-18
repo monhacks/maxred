@@ -110,7 +110,7 @@ MapHeaderPointers::
 	dw SafariZoneNortheast_h
 	dw SafariZoneNERestHouse_h
 	dw VictoryRoad1F_h
-	dw LancesRoom_h ; UNUSED_MAP_6D
+	dw VictoryRoadB1F_h
 	dw LancesRoom_h ; UNUSED_MAP_6E
 	dw LancesRoom_h ; UNUSED_MAP_6F
 	dw LancesRoom_h ; UNUSED_MAP_70

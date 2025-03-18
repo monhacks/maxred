@@ -100,11 +100,11 @@ DEF SHOW EQU $15
 	const HS_POWER_PLANT_ITEM_4            ; 59 X
 	const HS_POWER_PLANT_ITEM_5            ; 5A X
 	const HS_POWER_PLANT_ITEM_6            ; 
-	const HS_MOLTRES                       ; 5B X
+;	const HS_MOLTRES                       ; 5B X
 	const HS_VICTORY_ROAD_2F_ITEM_1        ; 5C X
 	const HS_VICTORY_ROAD_2F_ITEM_2        ; 5D X
 	const HS_VICTORY_ROAD_2F_ITEM_3        ; 5E X
-	const HS_VICTORY_ROAD_2F_ITEM_4        ; 5F X
+;	const HS_VICTORY_ROAD_2F_ITEM_4        ; 5F X
 	const HS_VICTORY_ROAD_2F_BOULDER       ; 60
 	const HS_BILL_POKEMON                  ; 61
 	const HS_BILL_1                        ; 62
