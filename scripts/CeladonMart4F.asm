@@ -19,3 +19,6 @@ CeladonMart4FYoungsterText:
 CeladonMart4FCurrentFloorSignText:
 	text_far _CeladonMart4FCurrentFloorSignText
 	text_end
+
+CeladonMart4FClerkText:
+	script_mart TM_METRONOME, TM_CHARGE_BEAM, TM_AERIAL_ACE, TM_WATER_PULSE, TM_SEISMIC_TOSS, TM_REST

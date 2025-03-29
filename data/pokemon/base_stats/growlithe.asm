@@ -14,10 +14,11 @@
 	db GROWTH_SLOW ; growth rate
 
 	; tm/hm learnset
-	tmhm TOXIC,        BODY_SLAM,    TAKE_DOWN,    DOUBLE_EDGE,  RAGE,         \
-	     DRAGON_RAGE,  DIG,          MIMIC,        DOUBLE_TEAM,  REFLECT,      \
-	     BIDE,         FIRE_BLAST,   SWIFT,        SKULL_BASH,   REST,         \
-	     SUBSTITUTE
+	tmhm AERIAL_ACE,   FOCUS_ENERGY, TOXIC,        BODY_SLAM,    DOUBLE_EDGE,  \
+	     MUD_SLAP,     WILL_O_WISP,  DRAGONBREATH, DIG,          MIMIC,        \
+	     DOUBLE_TEAM,  REFLECT,      FLAMETHROWER, FIRE_BLAST,   IRON_TAIL,    \
+	     REST,         SUBSTITUTE,   STRENGTH
 	; end
 
-	db 0 ; padding
+	db BANK(GrowlithePicFront)
+	assert BANK(GrowlithePicFront) == BANK(GrowlithePicBack)

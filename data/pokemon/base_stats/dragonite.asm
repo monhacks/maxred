@@ -14,12 +14,14 @@
 	db GROWTH_SLOW ; growth rate
 
 	; tm/hm learnset
-	tmhm RAZOR_WIND,   TOXIC,        HORN_DRILL,   BODY_SLAM,    TAKE_DOWN,    \
-	     DOUBLE_EDGE,  BUBBLEBEAM,   WATER_GUN,    ICE_BEAM,     BLIZZARD,     \
-	     HYPER_BEAM,   RAGE,         DRAGON_RAGE,  THUNDERBOLT,  THUNDER,      \
-	     MIMIC,        DOUBLE_TEAM,  REFLECT,      BIDE,         FIRE_BLAST,   \
-	     SWIFT,        SKULL_BASH,   REST,         THUNDER_WAVE, SUBSTITUTE,   \
-	     SURF,         STRENGTH
+	tmhm DYNAMICPUNCH, AERIAL_ACE,   TOXIC,        BODY_SLAM,    DOUBLE_EDGE,  \
+	     WATER_PULSE,  CHILLINWATER, ICE_BEAM,     BLIZZARD,     HYPER_BEAM,   \
+	     MUD_SLAP,     DRAGONBREATH, THUNDERBOLT,  THUNDER,      EARTHQUAKE,   \
+	     FISSURE,      LIGHT_SCREEN, MIMIC,        DOUBLE_TEAM,  REFLECT,      \
+	     ROCK_TOMB,    METRONOME,    FLAMETHROWER, FIRE_BLAST,   IRON_TAIL,    \
+	     HURRICANE,    REST,         THUNDER_WAVE, ROCK_SLIDE,   SUBSTITUTE,   \
+	     CUT,          FLY,          SURF,         STRENGTH
 	; end
 
-	db 0 ; padding
+	db BANK(DragonitePicFront)
+	assert BANK(DragonitePicFront) == BANK(DragonitePicBack)

@@ -14,9 +14,12 @@
 	db GROWTH_MEDIUM_FAST ; growth rate
 
 	; tm/hm learnset
-	tmhm TOXIC,        BODY_SLAM,    HYPER_BEAM,   RAGE,         MEGA_DRAIN,   \
-	     THUNDERBOLT,  THUNDER,      MIMIC,        DOUBLE_TEAM,  BIDE,         \
-	     SELFDESTRUCT, FIRE_BLAST,   REST,         EXPLOSION,    SUBSTITUTE
+	tmhm DYNAMICPUNCH, TOXIC,        SLUDGE_BOMB,  BODY_SLAM,    HYPER_BEAM,   \
+	     MUD_SLAP,     GIGA_DRAIN,   THUNDERBOLT,  THUNDER,      DIG,          \
+	     MIMIC,        DOUBLE_TEAM,  ROCK_TOMB,    SELFDESTRUCT, FLAMETHROWER, \
+	     FIRE_BLAST,   DARK_PULSE,   SHADOW_BALL,  REST,         EXPLOSION,    \
+	     SUBSTITUTE,   STRENGTH
 	; end
 
-	db 0 ; padding
+	db BANK(MukPicFront)
+	assert BANK(MukPicFront) == BANK(MukPicBack)

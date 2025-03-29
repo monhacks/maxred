@@ -7,8 +7,8 @@ SafariZoneEastRestHouse_Object:
 	db $a ; border block
 
 	def_warp_events
-	warp_event  2,  7, SAFARI_ZONE_EAST, 5
-	warp_event  3,  7, SAFARI_ZONE_EAST, 5
+	warp_event  2,  7, SAFARI_ZONE_EAST, 7
+	warp_event  3,  7, SAFARI_ZONE_EAST, 7
 
 	def_bg_events
 

@@ -18,8 +18,8 @@ _CeruleanGymMistyPreBattleText::
 	done
 
 _CeruleanGymMistyTM11ExplanationText::
-	text "TM11 teaches"
-	line "BUBBLEBEAM!"
+	text "TM11 contains"
+	line "WATER PULSE!"
 
 	para "Use it on an"
 	line "aquatic #MON!"

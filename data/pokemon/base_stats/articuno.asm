@@ -1,7 +1,7 @@
 	db DEX_ARTICUNO ; pokedex id
 
-	db  90,  85, 100,  85, 125
-	;   hp  atk  def  spd  spc
+	db  90,  85, 100,  85, 125 ; 485
+	;   hp  atk  def  spd  spc   BST
 
 	db ICE, FLYING ; type
 	db 3 ; catch rate
@@ -14,10 +14,12 @@
 	db GROWTH_SLOW ; growth rate
 
 	; tm/hm learnset
-	tmhm RAZOR_WIND,   WHIRLWIND,    TOXIC,        TAKE_DOWN,    DOUBLE_EDGE,  \
-	     BUBBLEBEAM,   WATER_GUN,    ICE_BEAM,     BLIZZARD,     HYPER_BEAM,   \
-	     RAGE,         MIMIC,        DOUBLE_TEAM,  REFLECT,      BIDE,         \
-	     SWIFT,        SKY_ATTACK,   REST,         SUBSTITUTE,   FLY
+	tmhm AERIAL_ACE,   FOCUS_ENERGY, TOXIC,        BODY_SLAM,    DOUBLE_EDGE,  \
+	     WATER_PULSE,  CHILLINWATER, ICE_BEAM,     BLIZZARD,     HYPER_BEAM,   \
+	     MUD_SLAP,     DRAGONBREATH, PSYCHIC_M,    LIGHT_SCREEN, MIMIC,        \
+	     DOUBLE_TEAM,  REFLECT,      HURRICANE,    REST,         SUBSTITUTE,   \
+	     FLY,          FLASH
 	; end
 
-	db 0 ; padding
+	db BANK(ArticunoPicFront)
+	assert BANK(ArticunoPicFront) == BANK(ArticunoPicBack)

@@ -130,6 +130,7 @@ SilphCo9F_TextPointers:
 	dw_const SilphCo9FRocket1Text,   TEXT_SILPHCO9F_ROCKET1
 	dw_const SilphCo9FScientistText, TEXT_SILPHCO9F_SCIENTIST
 	dw_const SilphCo9FRocket2Text,   TEXT_SILPHCO9F_ROCKET2
+	dw_const PickUpItemText,         TEXT_SILPHCO9F_TM_ICE_BEAM
 
 SilphCo9TrainerHeaders:
 	def_trainers 2

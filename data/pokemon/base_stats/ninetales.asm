@@ -10,14 +10,15 @@
 	INCBIN "gfx/pokemon/front/ninetales.pic", 0, 1 ; sprite dimensions
 	dw NinetalesPicFront, NinetalesPicBack
 
-	db EMBER, TAIL_WHIP, QUICK_ATTACK, ROAR ; level 1 learnset
+	db MYSTIC_FIRE, WILL_O_WISP, QUICK_ATTACK, INFERNO ; level 1 learnset
 	db GROWTH_MEDIUM_FAST ; growth rate
 
 	; tm/hm learnset
-	tmhm TOXIC,        BODY_SLAM,    TAKE_DOWN,    DOUBLE_EDGE,  HYPER_BEAM,   \
-	     RAGE,         DIG,          MIMIC,        DOUBLE_TEAM,  REFLECT,      \
-	     BIDE,         FIRE_BLAST,   SWIFT,        SKULL_BASH,   REST,         \
-	     SUBSTITUTE
+	tmhm TOXIC,        BODY_SLAM,    DOUBLE_EDGE,  HYPER_BEAM,   WILL_O_WISP,  \
+	     SOLARBEAM,    DIG,          LIGHT_SCREEN, MIMIC,        DOUBLE_TEAM,  \
+	     REFLECT,      FLAMETHROWER, FIRE_BLAST,   IRON_TAIL,    DARK_PULSE,   \
+	     SHADOW_BALL,  REST,         CALM_MIND,    SUBSTITUTE,   FLASH
 	; end
 
-	db 0 ; padding
+	db BANK(NinetalesPicFront)
+	assert BANK(NinetalesPicFront) == BANK(NinetalesPicBack)

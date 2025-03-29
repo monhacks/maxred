@@ -106,12 +106,12 @@ MapHeaderPointers::
 	dw SSAnne1FRooms_h
 	dw SSAnne2FRooms_h
 	dw SSAnneB1FRooms_h
-	dw LancesRoom_h ; UNUSED_MAP_69
-	dw LancesRoom_h ; UNUSED_MAP_6A
-	dw LancesRoom_h ; UNUSED_MAP_6B
+	dw RockTunnelB2F_h
+	dw SafariZoneNortheast_h
+	dw SafariZoneNERestHouse_h
 	dw VictoryRoad1F_h
-	dw LancesRoom_h ; UNUSED_MAP_6D
-	dw LancesRoom_h ; UNUSED_MAP_6E
+	dw VictoryRoadB1F_h
+	dw VictoryRoadOaksRoom_h
 	dw LancesRoom_h ; UNUSED_MAP_6F
 	dw LancesRoom_h ; UNUSED_MAP_70
 	dw LancesRoom_h

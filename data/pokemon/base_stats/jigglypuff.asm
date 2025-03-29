@@ -3,7 +3,7 @@
 	db 115,  45,  20,  20,  25
 	;   hp  atk  def  spd  spc
 
-	db NORMAL, NORMAL ; type
+	db NORMAL, FAIRY ; type
 	db 170 ; catch rate
 	db 76 ; base exp
 
@@ -14,13 +14,14 @@
 	db GROWTH_FAST ; growth rate
 
 	; tm/hm learnset
-	tmhm MEGA_PUNCH,   MEGA_KICK,    TOXIC,        BODY_SLAM,    TAKE_DOWN,    \
-	     DOUBLE_EDGE,  BUBBLEBEAM,   WATER_GUN,    ICE_BEAM,     BLIZZARD,     \
-	     SUBMISSION,   COUNTER,      SEISMIC_TOSS, RAGE,         SOLARBEAM,    \
-	     THUNDERBOLT,  THUNDER,      PSYCHIC_M,    TELEPORT,     MIMIC,        \
-	     DOUBLE_TEAM,  REFLECT,      BIDE,         FIRE_BLAST,   SKULL_BASH,   \
-	     REST,         THUNDER_WAVE, PSYWAVE,      TRI_ATTACK,   SUBSTITUTE,   \
+	tmhm DYNAMICPUNCH, TOXIC,        BODY_SLAM,    DOUBLE_EDGE,  WATER_PULSE,  \
+	     CHILLINWATER, ICE_BEAM,     BLIZZARD,     MUD_SLAP,     CHARGE_BEAM,  \
+	     COUNTER,      SEISMIC_TOSS, SOLARBEAM,    THUNDERBOLT,  THUNDER,      \
+	     DIG,          PSYCHIC_M,    LIGHT_SCREEN, MIMIC,        DOUBLE_TEAM,  \
+	     REFLECT,      METRONOME,    FLAMETHROWER, FIRE_BLAST,   SHADOW_BALL,  \
+	     REST,         THUNDER_WAVE, TRI_ATTACK,   SUBSTITUTE,   MOONBLAST,    \
 	     STRENGTH,     FLASH
 	; end
 
-	db 0 ; padding
+	db BANK(JigglypuffPicFront)
+	assert BANK(JigglypuffPicFront) == BANK(JigglypuffPicBack)

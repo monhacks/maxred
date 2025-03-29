@@ -20,3 +20,9 @@ CeladonMart2FGirlText:
 CeladonMart2FCurrentFloorSignText:
 	text_far _CeladonMart2FCurrentFloorSignText
 	text_end
+
+CeladonMart2FClerk1Text:
+	script_mart SUPER_POTION, REVIVE, ANTIDOTE, PARLYZ_HEAL, AWAKENING, BURN_HEAL, ICE_HEAL, FULL_HEAL
+
+CeladonMart2FClerk2Text:
+	script_mart POKE_BALL, GREAT_BALL, ESCAPE_ROPE, REPEL, SUPER_REPEL, POKE_DOLL

@@ -91,4 +91,17 @@
 	const LEECH_SEED_EFFECT          ; $54
 	const SPLASH_EFFECT              ; $55
 	const DISABLE_EFFECT             ; $56
+	const ATTACK_UP_SIDE_EFFECT      ; $57
+	const DEFENSE_UP_SIDE_EFFECT     ; $58
+	const SPEED_UP_SIDE_EFFECT       ; $59
+	const SPECIAL_UP_SIDE_EFFECT     ; $5A
+	const ACCURACY_UP_SIDE_EFFECT    ; $5B
+	const EVASION_UP_SIDE_EFFECT     ; $5C
+	const DRAGON_DANCE_EFFECT        ; $5D
+	const BULK_UP_EFFECT             ; $5E
+	const QUIVER_DANCE_EFFECT        ; $5F
+	const BURN_EFFECT                ; $60
+	const ALL_STATS_UP_SIDE_EFFECT   ; $61
+	const TRI_ATTACK_EFFECT          ; $62
+	const TRIPLE_KICK_EFFECT         ; $63
 DEF NUM_MOVE_EFFECTS EQU const_value - 1

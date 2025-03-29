@@ -14,7 +14,8 @@
 	db GROWTH_MEDIUM_FAST ; growth rate
 
 	; tm/hm learnset
-	tmhm
+	tmhm TOXIC,       REST
 	; end
 
-	db 0 ; padding
+	db BANK(KakunaPicFront)
+	assert BANK(KakunaPicFront) == BANK(KakunaPicBack)

@@ -1,7 +1,7 @@
 	db DEX_MAGMAR ; pokedex id
 
-	db  65,  95,  57,  93,  85
-	;   hp  atk  def  spd  spc
+	db  65,  95,  57,  93,  85 ; 395
+	;   hp  atk  def  spd  spc   BST
 
 	db FIRE, FIRE ; type
 	db 45 ; catch rate
@@ -14,11 +14,12 @@
 	db GROWTH_MEDIUM_FAST ; growth rate
 
 	; tm/hm learnset
-	tmhm MEGA_PUNCH,   MEGA_KICK,    TOXIC,        BODY_SLAM,    TAKE_DOWN,    \
-	     DOUBLE_EDGE,  HYPER_BEAM,   SUBMISSION,   COUNTER,      SEISMIC_TOSS, \
-	     RAGE,         PSYCHIC_M,    TELEPORT,     MIMIC,        DOUBLE_TEAM,  \
-	     BIDE,         METRONOME,    FIRE_BLAST,   SKULL_BASH,   REST,         \
-	     PSYWAVE,      SUBSTITUTE,   STRENGTH
+	tmhm DYNAMICPUNCH, TOXIC,        ROCK_CLIMB,   DOUBLE_EDGE,  HYPER_BEAM,   \
+	     MUD_SLAP,     COUNTER,      SEISMIC_TOSS, WILL_O_WISP,  PSYCHIC_M,    \
+	     MIMIC,        DOUBLE_TEAM,  METRONOME,    FLAMETHROWER, FIRE_BLAST,   \
+	     IRON_TAIL,    REST,         ROCK_SLIDE,   SUBSTITUTE,   STRENGTH,     \
+	     FLASH
 	; end
 
-	db 0 ; padding
+	db BANK(MagmarPicFront)
+	assert BANK(MagmarPicFront) == BANK(MagmarPicBack)

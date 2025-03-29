@@ -39,25 +39,25 @@ _CeladonCityGramps3Text::
 	line "dropping by!"
 	prompt
 
-_CeladonCityGramps3ReceivedTM41Text::
+_CeladonCityGramps3ReceivedTM42Text::
 	text "<PLAYER> received"
 	line "@"
 	text_ram wStringBuffer
 	text "!@"
 	text_end
 
-_CeladonCityGramps3TM41ExplanationText::
-	text "TM41 teaches"
-	line "SOFTBOILED!"
+_CeladonCityGramps3TM42ExplanationText::
+	text "TM42 contains"
+	line "SHADOW BALL!"
 
-	para "Only one #MON"
-	line "can use it!"
+	para "It is a GHOST type"
+	line "move!"
 
-	para "That #MON is"
-	line "CHANSEY!"
+	para "It can lower the"
+	line "target's SPECIAL!"
 	done
 
-_CeladonCityGramps3TM41NoRoomText::
+_CeladonCityGramps3TM42NoRoomText::
 	text "Oh, your pack is"
 	line "full of items!"
 	done

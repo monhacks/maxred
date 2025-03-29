@@ -11,10 +11,10 @@ _JumpMoveEffect:
 	ld a, [wEnemyMoveEffect]
 .next1
 	dec a ; subtract 1, there is no special effect for 00
-	add a ; x2, 16bit pointers
-	ld hl, MoveEffectPointerTable
-	ld b, 0
-	ld c, a
+	ld bc, MoveEffectPointerTable
+	ld h, 0
+	ld l, a
+	add hl, hl
 	add hl, bc
 	ld a, [hli]
 	ld h, [hl]
@@ -96,9 +96,15 @@ PoisonEffect:
 	ld a, [hld]
 	cp POISON ; can't poison a poison-type target
 	jr z, .noEffect
+	dec de
+	ld a, [de] ; Get move num
+	inc de
+	cp POISON_TAIL
+	ld b, 20 percent + 1 ; chance of poisoning
+	jr z, .sideEffectTest
 	ld a, [de]
 	cp POISON_SIDE_EFFECT1
-	ld b, 20 percent + 1 ; chance of poisoning
+	ld b, 30 percent + 1 ; chance of poisoning
 	jr z, .sideEffectTest
 	cp POISON_SIDE_EFFECT2
 	ld b, 40 percent + 1 ; chance of poisoning
@@ -147,7 +153,7 @@ PoisonEffect:
 	cp POISON_EFFECT
 	jr z, .regularPoisonEffect
 	ld a, b
-	call PlayBattleAnimation2
+	call PlayAlternativeAnimation2
 	jp PrintText
 .regularPoisonEffect
 	call PlayCurrentMoveAnimation2
@@ -214,6 +220,12 @@ FreezeBurnParalyzeEffect:
 	cp PARALYZE_SIDE_EFFECT1 + 1
 	ld b, 10 percent + 1
 	jr c, .regular_effectiveness
+	cp TRI_ATTACK_EFFECT
+	jr nz, .extra_effectiveness
+;;; Tri Attack has a 20% chance
+	ld b, 20 percent + 1
+	jr .regular_effectiveness
+.extra_effectiveness
 ; extra effectiveness
 	ld b, 30 percent + 1
 	ASSERT PARALYZE_SIDE_EFFECT2 - PARALYZE_SIDE_EFFECT1 == BURN_SIDE_EFFECT2 - BURN_SIDE_EFFECT1
@@ -230,19 +242,31 @@ FreezeBurnParalyzeEffect:
 	jr z, .burn1
 	cp FREEZE_SIDE_EFFECT1
 	jr z, .freeze1
-; .paralyze1
+	cp PARALYZE_SIDE_EFFECT1
+	jr z, .paralyze1
+.tri_attack_loop1
+	call BattleRandom
+	and $03 ; Only look at the last 2 bits of the random number
+;;; Only three possible results, so try again if result is zero
+	jr z, .tri_attack_loop1
+	cp 1
+	jr z, .freeze1
+	cp 2
+	jr z, .burn1
+; fallthrough
+.paralyze1
 	ld a, 1 << PAR
 	ld [wEnemyMonStatus], a
 	call QuarterSpeedDueToParalysis ; quarter speed of affected mon
 	ld a, ENEMY_HUD_SHAKE_ANIM
-	call PlayBattleAnimation
+	call PlayAlternativeAnimation
 	jp PrintMayNotAttackText ; print paralysis text
 .burn1
 	ld a, 1 << BRN
 	ld [wEnemyMonStatus], a
 	call HalveAttackDueToBurn ; halve attack of affected mon
 	ld a, ENEMY_HUD_SHAKE_ANIM
-	call PlayBattleAnimation
+	call PlayAlternativeAnimation
 	ld hl, BurnedText
 	jp PrintText
 .freeze1
@@ -250,7 +274,7 @@ FreezeBurnParalyzeEffect:
 	ld a, 1 << FRZ
 	ld [wEnemyMonStatus], a
 	ld a, ENEMY_HUD_SHAKE_ANIM
-	call PlayBattleAnimation
+	call PlayAlternativeAnimation
 	ld hl, FrozenText
 	jp PrintText
 .opponentAttacker
@@ -269,6 +293,12 @@ FreezeBurnParalyzeEffect:
 	cp PARALYZE_SIDE_EFFECT1 + 1
 	ld b, 10 percent + 1
 	jr c, .regular_effectiveness2
+	cp TRI_ATTACK_EFFECT
+	jr nz, .extra_effectiveness2
+;;; Tri Attack has a 20% chance
+	ld b, 20 percent + 1
+	jr .regular_effectiveness2
+.extra_effectiveness2
 ; extra effectiveness
 	ld b, 30 percent + 1
 	sub BURN_SIDE_EFFECT2 - BURN_SIDE_EFFECT1 ; treat extra effective as regular from now on
@@ -348,6 +378,331 @@ FireDefrostedText:
 	text_far _FireDefrostedText
 	text_end
 
+MultipleStatsUpEffect:
+	ld hl, wPlayerMonStatMods
+	ld de, wPlayerMoveEffect
+	ldh a, [hWhoseTurn]
+	and a
+	jr z, .multipleStatsUpEffect
+	ld hl, wEnemyMonStatMods
+	ld de, wEnemyMoveEffect
+.multipleStatsUpEffect
+	ld b, 0 ; used to track stats unable to raise
+	ld a, [de]
+	cp ALL_STATS_UP_SIDE_EFFECT
+	jr nz, .notSideEffect
+	call BattleRandom
+	cp 10 percent + 1 ; chance to increase stats
+	ret nc
+;;; increase stats
+	ld a, [hl]
+	cp 13 ; are we already at +6?
+	jr z, .skipAttackUp
+	inc b
+	inc a
+	ld [hl], a
+	push bc
+	ld b, a
+	ld c, 0
+	call UpdateSingleStat
+	pop bc
+.skipAttackUp
+	; set hl to user's defense
+	inc hl
+	ld a, [hl]
+	cp 13 ; are we already at +6?
+	jr z, .skipDefenseUp
+	inc b
+	inc a
+	ld [hl], a
+	push bc
+	ld b, a
+	ld c, 1
+	call UpdateSingleStat
+	pop bc
+.skipDefenseUp
+	; set hl to user's speed
+	inc hl
+	ld a, [hl]
+	cp 13 ; are we already at +6?
+	jr z, .skipSpeedUp
+	inc b
+	inc a
+	ld [hl], a
+	push bc
+	ld b, a
+	ld c, 2
+	call UpdateSingleStat
+	pop bc
+.skipSpeedUp
+	; set hl to user's special
+	inc hl
+	ld a, [hl]
+	cp 13 ; are we already at +6?
+	jr z, .skipSpecialUp
+	inc b
+	inc a
+	ld [hl], a
+	push bc
+	ld b, a
+	ld c, 2
+	call UpdateSingleStat
+	pop bc
+.skipSpecialUp
+	ld a, b
+	and a
+	jp z, .CouldntRaiseAnyStats
+	jp UpdateMultipleStats
+
+.notSideEffect
+	cp QUIVER_DANCE_EFFECT
+	jr z, .QuiverDance
+	cp BULK_UP_EFFECT
+	jr z, .BulkUp
+;;; Dragon Dance
+	ld a, [hl]
+	cp 13 ; are we already at +6?
+	jr z, .skipDragonDanceAttackUp
+	inc b
+	inc a
+	ld [hl], a
+	push bc
+	ld b, a
+	ld c, 0
+	call UpdateSingleStat
+	pop bc
+.skipDragonDanceAttackUp
+	; set hl to user's speed
+	inc hl
+	inc hl
+	ld a, [hl]
+	cp 13 ; are we already at +6
+	jr z, .skipDragonDanceSpeedUp
+	inc b
+	inc a
+	ld [hl], a
+	push bc
+	ld b, a
+	ld c, 2
+	call UpdateSingleStat
+	pop bc
+.skipDragonDanceSpeedUp
+	ld a, b
+	and a
+	jp z, .CouldntRaiseAnyStats
+	jp UpdateMultipleStats
+
+.BulkUp
+	ld a, [hl]
+	cp 13 ; are we already at +6?
+	jr z, .skipBulkUpAttackUp
+	inc b
+	inc a
+	ld [hl], a
+	push bc
+	ld b, a
+	ld c, 0
+	call UpdateSingleStat
+	pop bc
+.skipBulkUpAttackUp
+	; set hl to user's defense
+	inc hl
+	ld a, [hl]
+	cp 13 ; are we already at +6?
+	jr z, .skipBulkUpDefenseUp
+	inc b
+	inc a
+	ld [hl], a
+	push bc
+	ld b, a
+	ld c, 1
+	call UpdateSingleStat
+	pop bc
+.skipBulkUpDefenseUp
+	ld a, b
+	and a
+	jp z, .CouldntRaiseAnyStats
+	jp UpdateMultipleStats
+
+.QuiverDance
+	; set hl to user's speed
+	inc hl
+	inc hl
+	ld a, [hl]
+	cp 13 ; are we already at +6?
+	jr z, .skipQuiverDanceSpeedUp
+	inc b
+	inc a
+	ld [hl], a
+	push bc
+	ld b, a
+	ld c, 2
+	call UpdateSingleStat
+	pop bc
+.skipQuiverDanceSpeedUp
+	; set hl to user's special
+	inc hl
+	ld a, [hl]
+	cp 13 ; are we already at +6?
+	jr z, .skipQuiverDanceSpecialUp
+	inc b
+	inc a
+	ld [hl], a
+	push bc
+	ld b, a
+	ld c, 3
+	call UpdateSingleStat
+	pop bc
+.skipQuiverDanceSpecialUp
+	ld a, b
+	and a
+	jp nz, UpdateMultipleStats
+;;; fallthrough
+.CouldntRaiseAnyStats
+	jp z, PrintNothingHappenedText
+
+UpdateSingleStat:
+	push bc
+	push hl
+	ld hl, wBattleMonAttack + 1
+	ld de, wPlayerMonUnmodifiedAttack
+	ldh a, [hWhoseTurn]
+	and a
+	jr z, .pointToStats
+	ld hl, wEnemyMonAttack + 1
+	ld de, wEnemyMonUnmodifiedAttack
+.pointToStats
+	push bc
+	sla c
+	ld b, $0
+	add hl, bc ; hl = modified stat
+	ld a, c
+	add e
+	ld e, a
+	jr nc, .checkIf999
+	inc d ; de = unmodified (original) stat
+.checkIf999
+	pop bc
+	; check if stat is already 999
+	ld a, [hld]
+	sub LOW(MAX_STAT_VALUE)
+	jr nz, .recalculateStat
+	ld a, [hl]
+	sbc HIGH(MAX_STAT_VALUE)
+	jr nz, .recalculateStat
+	pop hl
+	pop bc
+	dec [hl]
+	jp PrintNothingHappenedText
+
+.recalculateStat ; recalculate affected stat
+                 ; paralysis and burn penalties, as well as badge boosts are ignored
+	push hl
+	push bc
+	ld hl, StatModifierRatios
+	dec b
+	sla b
+	ld c, b
+	ld b, $0
+	add hl, bc
+	pop bc
+	xor a
+	ldh [hMultiplicand], a
+	ld a, [de]
+	ldh [hMultiplicand + 1], a
+	inc de
+	ld a, [de]
+	ldh [hMultiplicand + 2], a
+	ld a, [hli]
+	ldh [hMultiplier], a
+	call Multiply
+	ld a, [hl]
+	ldh [hDivisor], a
+	ld b, $4
+	call Divide
+	pop hl
+; cap at MAX_STAT_VALUE (999)
+	ldh a, [hProduct + 3]
+	sub LOW(MAX_STAT_VALUE)
+	ldh a, [hProduct + 2]
+	sbc HIGH(MAX_STAT_VALUE)
+	jr c, .UpdateStat
+	ld a, HIGH(MAX_STAT_VALUE)
+	ldh [hMultiplicand + 1], a
+	ld a, LOW(MAX_STAT_VALUE)
+	ldh [hMultiplicand + 2], a
+
+.UpdateStat
+	ldh a, [hProduct + 2]
+	ld [hli], a
+	ldh a, [hProduct + 3]
+	ld [hl], a
+	pop hl
+	pop bc
+	ret
+
+UpdateMultipleStats:
+	ldh a, [hWhoseTurn]
+	and a
+	ld a, [wPlayerMovePower]
+	jr z, .gotUsersPower
+	ld a, [wEnemyMovePower]
+.gotUsersPower
+	and a
+	jr nz, .skipAnimation
+	call PlayCurrentMoveAnimation
+.skipAnimation
+	ldh a, [hWhoseTurn]
+	and a
+	ld a, [wPlayerMoveEffect]
+	jr z, .GotTurn
+	ld a, [wEnemyMoveEffect]
+.GotTurn
+	cp ALL_STATS_UP_SIDE_EFFECT
+	jr z, .OmniBoostText
+	cp QUIVER_DANCE_EFFECT
+	jr z, .QuiverDanceText
+	cp BULK_UP_EFFECT
+	jr z, .BulkUpText
+	ld hl, DragonDanceText
+	call PrintText
+	jr .doneText
+.BulkUpText
+	ld hl, BulkUpText
+	call PrintText
+	jr .doneText
+.QuiverDanceText
+	ld hl, QuiverDanceText
+	call PrintText
+.OmniBoostText
+	ld hl, OmniBoostText
+	call PrintText
+.doneText
+	ldh a, [hWhoseTurn]
+	and a
+	call z, ApplyBadgeStatBoosts ; whenever the player uses a stat-up move, badge boosts get reapplied again to every stat
+								 ; even to those not affected by the stat-up move (will be boosted further)
+
+;;; these shouldn't be here
+	call QuarterSpeedDueToParalysis ; apply speed penalty to the player whose turn is not, if it's paralyzed
+	jp HalveAttackDueToBurn ; apply attack penalty to the player whose turn is not, if it's burned
+
+DragonDanceText:
+	text_far _DragonDanceText
+	text_end
+
+BulkUpText:
+	text_far _BulkUpText
+	text_end
+
+QuiverDanceText:
+	text_far _QuiverDanceText
+	text_end
+
+OmniBoostText:
+	text_far _OmniBoostText
+	text_end
+
 StatModifierUpEffect:
 	ld hl, wPlayerMonStatMods
 	ld de, wPlayerMoveEffect
@@ -358,6 +713,27 @@ StatModifierUpEffect:
 	ld de, wEnemyMoveEffect
 .statModifierUpEffect
 	ld a, [de]
+	cp ATTACK_UP_SIDE_EFFECT
+	jr c, .nonSideEffect
+;;; check for Charge Beam
+	dec de
+	ld a, [de]
+	inc de
+	cp CHARGE_BEAM
+	ld b, 50 percent + 1 ; chance for Charge Beam
+	jr z, .got_percent
+	ld b, 10 percent + 1 ; chance otherwise
+.got_percent
+	call BattleRandom
+	cp b
+	pop bc
+	ret nc
+	ld a, [de]
+	sub ATTACK_UP_SIDE_EFFECT ; map each stat 0-6
+	cp EVASION_UP_SIDE_EFFECT + $3 - ATTACK_UP_SIDE_EFFECT
+	jr .incrementStatMod
+
+.nonSideEffect
 	sub ATTACK_UP1_EFFECT
 	cp EVASION_UP1_EFFECT + $3 - ATTACK_UP1_EFFECT ; covers all +1 effects
 	jr c, .incrementStatMod
@@ -372,9 +748,11 @@ StatModifierUpEffect:
 	cp b ; can't raise stat past +6 ($d or 13)
 	jp c, PrintNothingHappenedText
 	ld a, [de]
-	cp ATTACK_UP1_EFFECT + $8 ; is it a +2 effect?
+	cp ATTACK_UP1_EFFECT + $8 ; is it a +1 effect?
 	jr c, .ok
-	inc b ; if so, increment stat mod again
+	cp ATTACK_UP_SIDE_EFFECT ; is it a side effect?
+	jr nc, .ok
+	inc b ; must be a +2 effect, increment stat mod again
 	ld a, $d
 	cp b ; unless it's already +6
 	jr nc, .ok
@@ -468,6 +846,10 @@ UpdateStatDone:
 	ld de, wEnemyMoveNum
 	ld bc, wEnemyMonMinimized
 .playerTurn
+; check if we used an X-stat up item
+	ld a, [wAltAnimationID]
+	and a
+	jr nz, .notMinimize
 	ld a, [de]
 	cp MINIMIZE
 	jr nz, .notMinimize
@@ -482,7 +864,16 @@ UpdateStatDone:
 	call nz, Bankswitch
 	pop de
 .notMinimize
+	ldh a, [hWhoseTurn]
+	and a
+	ld a, [wPlayerMovePower]
+	jr z, .gotUsersPower1
+	ld a, [wEnemyMovePower]
+.gotUsersPower1
+	and a ; skip animation if damage dealing move
+	jr nz, .skipAnimation
 	call PlayCurrentMoveAnimation
+.skipAnimation
 	ld a, [de]
 	cp MINIMIZE
 	jr nz, .applyBadgeBoostsAndStatusPenalties
@@ -516,7 +907,7 @@ PrintNothingHappenedText:
 MonsStatsRoseText:
 	text_far _MonsStatsRoseText
 	text_asm
-	ld hl, GreatlyRoseText
+	ld hl, RoseText
 	ldh a, [hWhoseTurn]
 	and a
 	ld a, [wPlayerMoveEffect]
@@ -524,8 +915,10 @@ MonsStatsRoseText:
 	ld a, [wEnemyMoveEffect]
 .playerTurn
 	cp ATTACK_DOWN1_EFFECT
+	ret c
+	cp ATTACK_UP_SIDE_EFFECT
 	ret nc
-	ld hl, RoseText
+	ld hl, GreatlyRoseText
 	ret
 
 GreatlyRoseText:
@@ -558,8 +951,19 @@ StatModifierDownEffect:
 	ld a, [de]
 	cp ATTACK_DOWN_SIDE_EFFECT
 	jr c, .nonSideEffect
+	dec de ; check for Razor Shell
+	ld a, [de]
+	inc de
+	cp RAZOR_SHELL
+	ld b, 50 percent + 1 ; chance for Razor Shell
+	jr z, .got_percent2
+	cp IRON_TAIL
+	ld b, 30 percent + 1 ; chance for Iron Tail
+	jr z, .got_percent2
+	ld b, 10 percent + 1 ; chance otherwise
+.got_percent2
 	call BattleRandom
-	cp 33 percent + 1 ; chance for side effects
+	cp b
 	jp nc, CantLowerAnymore
 	ld a, [de]
 	sub ATTACK_DOWN_SIDE_EFFECT ; map each stat to 0-3
@@ -682,6 +1086,14 @@ UpdateLoweredStatDone:
 	ld a, [de]
 	cp $44
 	jr nc, .ApplyBadgeBoostsAndStatusPenalties
+	ldh a, [hWhoseTurn] ; check who is using the move
+	and a
+	ld a, [wPlayerMovePower]
+	jr z, .gotUsersPower2
+	ld a, [wEnemyMovePower]
+.gotUsersPower2
+	and a ; skip animation if damage dealing move
+	jr nz, .ApplyBadgeBoostsAndStatusPenalties
 	call PlayCurrentMoveAnimation2
 .ApplyBadgeBoostsAndStatusPenalties
 	ldh a, [hWhoseTurn]
@@ -786,7 +1198,7 @@ BideEffect:
 	ld [bc], a ; set Bide counter to 2 or 3 at random
 	ldh a, [hWhoseTurn]
 	add XSTATITEM_ANIM
-	jp PlayBattleAnimation2
+	jp PlayAlternativeAnimation2
 
 ThrashPetalDanceEffect:
 	ld hl, wPlayerBattleStatus1
@@ -805,7 +1217,7 @@ ThrashPetalDanceEffect:
 	ld [de], a ; set thrash/petal dance counter to 2 or 3 at random
 	ldh a, [hWhoseTurn]
 	add SHRINKING_SQUARE_ANIM
-	jp PlayBattleAnimation2
+	jp PlayAlternativeAnimation2
 
 SwitchAndTeleportEffect:
 	ldh a, [hWhoseTurn]
@@ -945,8 +1357,12 @@ TwoToFiveAttacksEffect:
 	ld a, [hl]
 	cp TWINEEDLE_EFFECT
 	jr z, .twineedle
+	ld a, [hl]
+	cp TRIPLE_KICK_EFFECT
+	ld a, 3 ; number of hits is always 3 for TRIPLE_KICK_EFFECT
+	jr z, .saveNumberOfHits
 	cp ATTACK_TWICE_EFFECT
-	ld a, $2 ; number of hits it's always 2 for ATTACK_TWICE_EFFECT
+	ld a, $2 ; number of hits is always 2 for ATTACK_TWICE_EFFECT
 	jr z, .saveNumberOfHits
 ; for TWO_TO_FIVE_ATTACKS_EFFECT 3/8 chance for 2 and 3 hits, and 1/8 chance for 4 and 5 hits
 	call BattleRandom
@@ -980,10 +1396,19 @@ FlinchSideEffect:
 	ld de, wEnemyMoveEffect
 .flinchSideEffect
 	ld a, [de]
-	cp FLINCH_SIDE_EFFECT1
-	ld b, 10 percent + 1 ; chance of flinch (FLINCH_SIDE_EFFECT1)
+	cp FLINCH_SIDE_EFFECT2
+	ld b, 30 percent + 1 ; chance of flinch (FLINCH_SIDE_EFFECT1)
 	jr z, .gotEffectChance
-	ld b, 30 percent + 1 ; chance of flinch otherwise
+	ld b, 20 percent + 1 ; chance of flinch for Waterfall, Zen Headbutt and Dark Pulse
+	dec de ; get move num
+	ld a, [de]
+	cp WATERFALL
+	jr z, .gotEffectChance
+	cp ZEN_HEADBUTT
+	jr z, .gotEffectChance
+	cp DARK_PULSE
+	jr z, .gotEffectChance
+	ld b, 10 percent + 1 ; chance of flinch otherwise
 .gotEffectChance
 	call BattleRandom
 	cp b
@@ -1013,6 +1438,13 @@ ChargeEffect:
 	jr nz, .notFly
 	set INVULNERABLE, [hl] ; mon is now invulnerable to typical attacks (fly/dig)
 	ld b, TELEPORT ; load Teleport's animation
+;;; TELEPORT is the only battle move animation so we handle it separately
+	xor a
+	ld [wAnimationType], a
+	ld a, b
+	call PlayBattleAnimation
+	jr .doneWithAnimations
+;;;
 .notFly
 	ld a, [de]
 	cp DIG
@@ -1023,7 +1455,8 @@ ChargeEffect:
 	xor a
 	ld [wAnimationType], a
 	ld a, b
-	call PlayBattleAnimation
+	call PlayAlternativeAnimation
+.doneWithAnimations
 	ld a, [de]
 	ld [wChargeMoveNum], a
 	ld hl, ChargeMoveEffectText
@@ -1112,8 +1545,27 @@ RecoilEffect:
 	jpfar RecoilEffect_
 
 ConfusionSideEffect:
+	ld de, wPlayerMoveEffect
+	ldh a, [hWhoseTurn]
+	and a
+	jr z, .got_move
+	ld de, wEnemyMoveEffect
+.got_move
+	ld a, [de]
+	ld b, 30 percent + 1 ; chance of confusion for HURRICANE
+	cp HURRICANE
+	jr z, .got_confusionPercent
+	ld b, 20 percent + 1 ; chance of confusion for DIZZY_PUNCH, WATER_PULSE, and ROCK_CLIMB
+	cp DIZZY_PUNCH
+	jr z, .got_confusionPercent
+	cp WATER_PULSE
+	jr z, .got_confusionPercent
+	cp ROCK_CLIMB
+	jr z, .got_confusionPercent
+	ld b, 10 percent + 1 ; chance of confusion otherwise
+.got_confusionPercent
 	call BattleRandom
-	cp 10 percent ; chance of confusion
+	cp b
 	ret nc
 	jr ConfusionSideEffectSuccess
 
@@ -1147,7 +1599,16 @@ ConfusionSideEffectSuccess:
 	ld [bc], a ; confusion status will last 2-5 turns
 	pop af
 	cp CONFUSION_SIDE_EFFECT
+	ldh a, [hWhoseTurn]
+	and a
+	ld a, [wPlayerMovePower]
+	jp z, .gotConfusionUsersPower
+	ld a, [wEnemyMovePower]
+.gotConfusionUsersPower
+	and a
+	jr nz, .skipConfusionMoveAnimation
 	call nz, PlayCurrentMoveAnimation2
+.skipConfusionMoveAnimation
 	ld hl, BecameConfusedText
 	jp PrintText
 
@@ -1370,6 +1831,83 @@ MoveWasDisabledText:
 	text_far _MoveWasDisabledText
 	text_end
 
+BurnEffect:
+	xor a
+	ld hl, wEnemyMonStatus
+	ldh a, [hWhoseTurn]
+	and a
+	jp nz, .opponentBurnEffect
+	call CheckTargetSubstitute
+	jp nz, .noEffect              ; can't burn a substitute target
+	ld a, [hl]
+	and a 
+	jp nz, .noEffect              ; can't burn if already statused
+	ld a, [hli]
+	cp FIRE
+	jp z, .noEffect               ; can't burn a fire-type target
+	ld a, [hld]
+	cp FIRE
+	jp z, .noEffect               ; can't burn a fire-type target
+;;; apply accuracy checks
+	call MoveHitTest
+	ld a, [wMoveMissed]
+	and a
+	jp nz, .moveMissed
+;;; 
+	ld a, 1 << BRN
+	ld [wEnemyMonStatus], a       ; change status to BURN
+	call HalveAttackDueToBurn  ; halve attack of affected mon
+	ld c, 30
+	call DelayFrames
+	ld a, [wPlayerMovePower]
+	and a ; skipAnimation if damage dealing move
+	jp nz, .skipAnimation
+
+.opponentBurnEffect
+	ld hl, wBattleMonStatus
+	call CheckTargetSubstitute
+	jr nz, .noEffect              ; can't burn a substitute target
+	ld a, [hl]
+	and a 
+	jr nz, .noEffect              ; can't burn if already statused
+	ld a, [hli]
+	cp FIRE
+	jr z, .noEffect               ; can't burn a fire-type target
+	ld a, [hld]
+	cp FIRE
+	jr z, .noEffect               ; can't burn a fire-type target
+;;; apply accuracy checks
+	call MoveHitTest
+	ld a, [wMoveMissed]
+	and a
+	jr nz, .moveMissed
+;;; 
+	ld a, 1 << BRN
+	ld [wBattleMonStatus], a       ; change status to BURN
+	call HalveAttackDueToBurn  ; halve attack of affected mon
+	ld c, 30
+	call DelayFrames
+	ld a, [wEnemyMovePower]
+	and a ; skipAnimation if damage dealing move
+	jr nz, .skipAnimation
+.playAnimation
+	callfar PlayCurrentMoveAnimation
+.skipAnimation
+	ld hl, BurnedText
+	jp PrintText
+.moveMissed
+	ld c, 40
+	call DelayFrames
+	jp AttackMissed
+.noEffect
+	ld c, 40
+	call DelayFrames
+	jp PrintDidntAffectText
+
+AttackMissed:
+	ld hl, AttackMissedText
+	call PrintText
+
 PayDayEffect:
 	jpfar PayDayEffect_
 
@@ -1460,6 +1998,10 @@ PlayCurrentMoveAnimation2:
 PlayBattleAnimation2:
 ; play animation ID at a and animation type 6 or 3
 	ld [wAnimationID], a
+; zero out the alternative animation
+	xor a
+	ld [wAltAnimationID], a
+GotAnimationID:
 	ldh a, [hWhoseTurn]
 	and a
 	ld a, ANIMATIONTYPE_SHAKE_SCREEN_HORIZONTALLY_SLOW_2
@@ -1469,11 +2011,20 @@ PlayBattleAnimation2:
 	ld [wAnimationType], a
 	jp PlayBattleAnimationGotID
 
+PlayAlternativeAnimation2:
+	ld [wAltAnimationID], a
+	jr GotAnimationID
+
 PlayCurrentMoveAnimation:
 ; animation at MOVENUM will be played unless MOVENUM is 0
 ; resets wAnimationType
 	xor a
 	ld [wAnimationType], a
+;;; check for which type of animation to play
+	ld a, [wAltAnimationID]
+	and a
+	jr nz, PlayAlternativeAnimation
+
 	ldh a, [hWhoseTurn]
 	and a
 	ld a, [wPlayerMoveNum]
@@ -1482,10 +2033,14 @@ PlayCurrentMoveAnimation:
 .notEnemyTurn
 	and a
 	ret z
+;;; fallthrough
 
 PlayBattleAnimation:
 ; play animation ID at a and predefined animation type
 	ld [wAnimationID], a
+;;; zero out the alternative animation
+	xor a
+	ld [wAltAnimationID], a
 
 PlayBattleAnimationGotID:
 ; play animation at wAnimationID
@@ -1497,3 +2052,7 @@ PlayBattleAnimationGotID:
 	pop de
 	pop hl
 	ret
+
+PlayAlternativeAnimation:
+	ld [wAltAnimationID], a
+	jr PlayBattleAnimationGotID

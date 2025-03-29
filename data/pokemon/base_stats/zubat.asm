@@ -14,9 +14,10 @@
 	db GROWTH_MEDIUM_FAST ; growth rate
 
 	; tm/hm learnset
-	tmhm RAZOR_WIND,   WHIRLWIND,    TOXIC,        TAKE_DOWN,    DOUBLE_EDGE,  \
-	     RAGE,         MEGA_DRAIN,   MIMIC,        DOUBLE_TEAM,  BIDE,         \
-	     SWIFT,        REST,         SUBSTITUTE
+	tmhm AERIAL_ACE,   FOCUS_ENERGY, TOXIC,        SLUDGE_BOMB,  DOUBLE_EDGE,  \
+	     GIGA_DRAIN,   MIMIC,        DOUBLE_TEAM,  X_SCISSOR,    DARK_PULSE,   \
+	     SHADOW_BALL,  REST,         SUBSTITUTE,   FLY
 	; end
 
-	db 0 ; padding
+	db BANK(ZubatPicFront)
+	assert BANK(ZubatPicFront) == BANK(ZubatPicBack)

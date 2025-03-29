@@ -14,14 +14,16 @@
 	db GROWTH_SLOW ; growth rate
 
 	; tm/hm learnset
-	tmhm MEGA_PUNCH,   MEGA_KICK,    TOXIC,        BODY_SLAM,    TAKE_DOWN,    \
-	     DOUBLE_EDGE,  BUBBLEBEAM,   WATER_GUN,    ICE_BEAM,     BLIZZARD,     \
-	     HYPER_BEAM,   PAY_DAY,      SUBMISSION,   COUNTER,      SEISMIC_TOSS, \
-	     RAGE,         SOLARBEAM,    THUNDERBOLT,  THUNDER,      PSYCHIC_M,    \
-	     TELEPORT,     MIMIC,        DOUBLE_TEAM,  REFLECT,      BIDE,         \
-	     METRONOME,    SELFDESTRUCT, FIRE_BLAST,   SKULL_BASH,   REST,         \
-	     THUNDER_WAVE, PSYWAVE,      TRI_ATTACK,   SUBSTITUTE,   STRENGTH,     \
+	tmhm DYNAMICPUNCH, AERIAL_ACE,   FOCUS_ENERGY, BULK_UP,      TOXIC,        \
+	     BODY_SLAM,    ROCK_CLIMB,   DOUBLE_EDGE,  WATER_PULSE,  CHILLINWATER, \
+	     ICE_BEAM,     BLIZZARD,     HYPER_BEAM,   MUD_SLAP,     CHARGE_BEAM,  \
+	     COUNTER,      SEISMIC_TOSS, WILL_O_WISP,  SOLARBEAM,    THUNDERBOLT,  \
+	     THUNDER,      EARTHQUAKE,   PSYCHIC_M,    LIGHT_SCREEN, MIMIC,        \
+	     DOUBLE_TEAM,  REFLECT,      ROCK_TOMB,    METRONOME,    FLAMETHROWER, \
+	     FIRE_BLAST,   IRON_TAIL,    SHADOW_BALL,  REST,         THUNDER_WAVE, \
+	     CALM_MIND,    ROCK_SLIDE,   TRI_ATTACK,   SUBSTITUTE,   STRENGTH,     \
 	     FLASH
 	; end
 
-	db 0 ; padding
+	db BANK(MewtwoPicFront)
+	assert BANK(MewtwoPicFront) == BANK(MewtwoPicBack)

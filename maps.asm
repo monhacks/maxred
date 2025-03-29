@@ -254,6 +254,7 @@ LavenderTown_Blocks: INCBIN "maps/LavenderTown.blk"
 
 ViridianPokecenter_Blocks: INCBIN "maps/ViridianPokecenter.blk"
 
+SafariZoneNERestHouse_Blocks:
 SafariZoneCenterRestHouse_Blocks:
 SafariZoneWestRestHouse_Blocks:
 SafariZoneEastRestHouse_Blocks:
@@ -354,6 +355,10 @@ INCLUDE "data/maps/headers/SafariZoneNorthRestHouse.asm"
 INCLUDE "scripts/SafariZoneNorthRestHouse.asm"
 INCLUDE "data/maps/objects/SafariZoneNorthRestHouse.asm"
 
+INCLUDE "data/maps/headers/SafariZoneNERestHouse.asm"
+INCLUDE "scripts/SafariZoneNERestHouse.asm"
+INCLUDE "data/maps/objects/SafariZoneNERestHouse.asm"
+
 INCLUDE "data/maps/headers/CeruleanCave2F.asm"
 INCLUDE "scripts/CeruleanCave2F.asm"
 INCLUDE "data/maps/objects/CeruleanCave2F.asm"
@@ -368,6 +373,11 @@ INCLUDE "data/maps/headers/RockTunnelB1F.asm"
 INCLUDE "scripts/RockTunnelB1F.asm"
 INCLUDE "data/maps/objects/RockTunnelB1F.asm"
 RockTunnelB1F_Blocks: INCBIN "maps/RockTunnelB1F.blk"
+
+INCLUDE "data/maps/headers/RockTunnelB2F.asm"
+INCLUDE "data/maps/objects/RockTunnelB2F.asm"
+INCLUDE "scripts/RockTunnelB2F.asm"
+RockTunnelB2F_Blocks: INCBIN "maps/RockTunnelB2F.blk"
 
 INCLUDE "data/maps/headers/SeafoamIslandsB1F.asm"
 INCLUDE "scripts/SeafoamIslandsB1F.asm"
@@ -563,6 +573,11 @@ INCLUDE "data/maps/headers/SafariZoneWest.asm"
 INCLUDE "scripts/SafariZoneWest.asm"
 INCLUDE "data/maps/objects/SafariZoneWest.asm"
 SafariZoneWest_Blocks: INCBIN "maps/SafariZoneWest.blk"
+
+INCLUDE "data/maps/headers/SafariZoneNortheast.asm"
+INCLUDE "scripts/SafariZoneNortheast.asm"
+INCLUDE "data/maps/objects/SafariZoneNortheast.asm"
+SafariZoneNortheast_Blocks: INCBIN "maps/SafariZoneNortheast.blk"
 
 INCLUDE "data/maps/headers/SafariZoneSecretHouse.asm"
 INCLUDE "scripts/SafariZoneSecretHouse.asm"
@@ -822,9 +837,11 @@ HallOfFame_Blocks: INCBIN "maps/HallOfFame.blk"
 
 SECTION "Maps 15", ROMX
 
-SaffronMart_Blocks:
+SaffronMart_Blocks: INCBIN "maps/SaffronMart.blk"
+
 LavenderMart_Blocks:
-CeruleanMart_Blocks:
+CeruleanMart_Blocks: INCBIN "maps/CeruleanMart.blk"
+
 VermilionMart_Blocks: INCBIN "maps/VermilionMart.blk"
 
 CopycatsHouse2F_Blocks:
@@ -972,6 +989,16 @@ INCLUDE "scripts/VictoryRoad1F.asm"
 INCLUDE "data/maps/objects/VictoryRoad1F.asm"
 VictoryRoad1F_Blocks: INCBIN "maps/VictoryRoad1F.blk"
 
+INCLUDE "data/maps/headers/VictoryRoadB1F.asm"
+INCLUDE "scripts/VictoryRoadB1F.asm"
+INCLUDE "data/maps/objects/VictoryRoadB1F.asm"
+VictoryRoadB1F_Blocks: INCBIN "maps/VictoryRoadB1F.blk"
+
+INCLUDE "data/maps/headers/VictoryRoadOaksRoom.asm"
+INCLUDE "scripts/VictoryRoadOaksRoom.asm"
+INCLUDE "data/maps/objects/VictoryRoadOaksRoom.asm"
+VictoryRoadOaksRoom_Blocks: INCBIN "maps/VictoryRoadOaksRoom.blk"
+
 
 SECTION "Maps 17", ROMX
 
@@ -1099,7 +1126,8 @@ SECTION "Maps 19", ROMX
 
 CopycatsHouse1F_Blocks: INCBIN "maps/CopycatsHouse1F.blk"
 
-CinnabarMart_Blocks:
+CinnabarMart_Blocks: INCBIN "maps/CinnabarMart.blk"
+
 PewterMart_Blocks: INCBIN "maps/PewterMart.blk"
 
 FuchsiaBillsGrandpasHouse_Blocks: INCBIN "maps/FuchsiaBillsGrandpasHouse.blk"

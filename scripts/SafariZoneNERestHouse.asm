@@ -1,0 +1,6 @@
+SafariZoneNERestHouse_Script:
+	call EnableAutoTextBoxDrawing
+	ret
+
+SafariZoneNERestHouse_TextPointers:
+	def_text_pointers

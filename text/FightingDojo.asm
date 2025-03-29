@@ -1,9 +1,18 @@
-_FightingDojoKarateMasterText::
+_FightingDojoKarateMasterPreBattleText::
 	text "Grunt!"
 
 	para "I am the KARATE"
 	line "MASTER! I am the"
-	cont "LEADER here!"
+	cont "LEADER of this"
+	cont "DOJO!"
+
+	para "This was the"
+	line "official GYM"
+	cont "in SAFFRON CITY"
+	cont "before SABRINA"
+	cont "and her PSYCHIC"
+	cont "types took"
+	cont "over."
 
 	para "You wish to"
 	line "challenge us?"
@@ -17,7 +26,14 @@ _FightingDojoKarateMasterDefeatedText::
 	line "Arrgh! Beaten!"
 	prompt
 
-_FightingDojoKarateMasterIWillGiveYouAPokemonText::
+_FightingDojoKarateMasterPostBattleAdviceText::
+	text "Ho!"
+
+	para "Stay and train"
+	line "Karate with us!"
+	done
+
+_FightingDojoDontFightingDojoDontTakeDojoEmblemText::
 	text "Indeed, I have"
 	line "lost!"
 
@@ -27,18 +43,34 @@ _FightingDojoKarateMasterIWillGiveYouAPokemonText::
 	cont "your trophy!"
 
 	para "In return, I will"
-	line "give you a prized"
-	cont "fighting #MON!"
-
-	para "Choose whichever"
-	line "one you like!"
+	line "give you this"
+	cont "powerful TM!"
 	done
 
-_FightingDojoKarateMasterStayAndTrainWithUsText::
-	text "Ho!"
+_FightingDojoReceivedTM01Text::
+	text "<PLAYER> received"
+	line "@"
+	text_ram wStringBuffer
+	text "!@"
+	text_end
 
-	para "Stay and train at"
-	line "Karate with us!"
+_TM01ExplanationText::
+	text_start
+
+	para "TM01 contains"
+	line "DYNAMICPUNCH."
+
+	para "Its not very"
+	line "accurate, but"
+	cont "it always"
+	cont "confuses the"
+	cont "target when"
+	cont "it connects!"
+	done
+
+_FightingDojoTM01NoRoomText::
+	text "You better make"
+	line "room for this!"
 	done
 
 _FightingDojoBlackbelt1BattleText::
@@ -111,20 +143,4 @@ _FightingDojoBlackbelt4AfterBattleText::
 	line "across the land"
 	cont "train here."
 	done
-
-_FightingDojoHitmonleePokeBallText::
-	text "You want the"
-	line "hard kicking"
-	cont "HITMONLEE?"
-	done
-
-_FightingDojoHitmonchanPokeBallText::
-	text "You want the"
-	line "piston punching"
-	cont "HITMONCHAN?"
-	done
-
-_FightingDojoBetterNotGetGreedyText::
-	text "Better not get"
-	line "greedy..."
-	done
+	

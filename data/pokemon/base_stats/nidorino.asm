@@ -14,10 +14,11 @@
 	db GROWTH_MEDIUM_SLOW ; growth rate
 
 	; tm/hm learnset
-	tmhm TOXIC,        HORN_DRILL,   BODY_SLAM,    TAKE_DOWN,    DOUBLE_EDGE,  \
-	     BUBBLEBEAM,   WATER_GUN,    ICE_BEAM,     BLIZZARD,     RAGE,         \
-	     THUNDERBOLT,  THUNDER,      MIMIC,        DOUBLE_TEAM,  REFLECT,      \
-	     BIDE,         SKULL_BASH,   REST,         SUBSTITUTE
+	tmhm FOCUS_ENERGY, TOXIC,        SLUDGE_BOMB,  BODY_SLAM,    DOUBLE_EDGE,  \
+	     WATER_PULSE,  ICE_BEAM,     BLIZZARD,     MUD_SLAP,     THUNDERBOLT,  \
+	     THUNDER,      DIG,          MIMIC,        DOUBLE_TEAM,  IRON_TAIL,    \
+	     REST,         SUBSTITUTE,   CUT,          STRENGTH
 	; end
 
-	db 0 ; padding
+	db BANK(NidorinoPicFront)
+	assert BANK(NidorinoPicFront) == BANK(NidorinoPicBack)

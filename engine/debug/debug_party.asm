@@ -84,7 +84,7 @@ IF DEF(_DEBUG)
 
 	; Pikachu gets Surf.
 	ld hl, wPartyMon6Moves + 2
-	ld a, SURF
+	ld a, FLASH
 	ld [hl], a
 	ld hl, wPartyMon6PP + 2
 	ld a, 15
@@ -144,7 +144,7 @@ DebugNewGameItemsList:
 	db MAX_REPEL, 99
 	db RARE_CANDY, 99
 	db MASTER_BALL, 99
-	db MOON_STONE, 99
+	db SHINY_STONE, 99
 	db HP_UP, 99
 	db PP_UP, 99
 	db NUGGET, 99

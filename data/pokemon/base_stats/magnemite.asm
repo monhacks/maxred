@@ -3,7 +3,7 @@
 	db  25,  35,  70,  45,  95
 	;   hp  atk  def  spd  spc
 
-	db ELECTRIC, ELECTRIC ; type
+	db ELECTRIC, STEEL ; type
 	db 190 ; catch rate
 	db 89 ; base exp
 
@@ -14,10 +14,11 @@
 	db GROWTH_MEDIUM_FAST ; growth rate
 
 	; tm/hm learnset
-	tmhm TOXIC,        TAKE_DOWN,    DOUBLE_EDGE,  RAGE,         THUNDERBOLT,  \
-	     THUNDER,      TELEPORT,     MIMIC,        DOUBLE_TEAM,  REFLECT,      \
-	     BIDE,         SWIFT,        REST,         THUNDER_WAVE, SUBSTITUTE,   \
+	tmhm TOXIC,        DOUBLE_EDGE,  CHARGE_BEAM,  THUNDERBOLT,  THUNDER,      \
+	     LIGHT_SCREEN, MIMIC,        DOUBLE_TEAM,  REFLECT,      SELFDESTRUCT, \
+	     REST,         THUNDER_WAVE, EXPLOSION,    TRI_ATTACK,   SUBSTITUTE,   \
 	     FLASH
 	; end
 
-	db 0 ; padding
+	db BANK(MagnemitePicFront)
+	assert BANK(MagnemitePicFront) == BANK(MagnemitePicBack)

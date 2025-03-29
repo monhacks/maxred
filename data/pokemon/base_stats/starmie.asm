@@ -14,12 +14,12 @@
 	db GROWTH_SLOW ; growth rate
 
 	; tm/hm learnset
-	tmhm TOXIC,        TAKE_DOWN,    DOUBLE_EDGE,  BUBBLEBEAM,   WATER_GUN,    \
-	     ICE_BEAM,     BLIZZARD,     HYPER_BEAM,   RAGE,         THUNDERBOLT,  \
-	     THUNDER,      PSYCHIC_M,    TELEPORT,     MIMIC,        DOUBLE_TEAM,  \
-	     REFLECT,      BIDE,         SWIFT,        SKULL_BASH,   REST,         \
-	     THUNDER_WAVE, PSYWAVE,      TRI_ATTACK,   SUBSTITUTE,   SURF,         \
-	     FLASH
+	tmhm TOXIC,        DOUBLE_EDGE,  WATER_PULSE,  ICE_BEAM,     BLIZZARD,     \
+	     HYPER_BEAM,   CHARGE_BEAM,  SOLARBEAM,    THUNDERBOLT,  THUNDER,      \
+	     PSYCHIC_M,    LIGHT_SCREEN, MIMIC,        DOUBLE_TEAM,  REFLECT,      \
+	     FLAMETHROWER, FIRE_BLAST,   REST,         THUNDER_WAVE, TRI_ATTACK,   \
+	     SUBSTITUTE,   SURF,         FLASH
 	; end
 
-	db 0 ; padding
+	db BANK(StarmiePicFront)
+	assert BANK(StarmiePicFront) == BANK(StarmiePicBack)

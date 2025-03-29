@@ -14,10 +14,11 @@
 	db GROWTH_MEDIUM_FAST ; growth rate
 
 	; tm/hm learnset
-	tmhm SWORDS_DANCE, TOXIC,        BODY_SLAM,    TAKE_DOWN,    DOUBLE_EDGE,  \
-	     RAGE,         MEGA_DRAIN,   SOLARBEAM,    DIG,          MIMIC,        \
-	     DOUBLE_TEAM,  REFLECT,      BIDE,         SKULL_BASH,   REST,         \
-	     SUBSTITUTE,   CUT
+	tmhm AERIAL_ACE,   SWORDS_DANCE, FOCUS_ENERGY, TOXIC,        SLUDGE_BOMB,  \
+	     BODY_SLAM,    DOUBLE_EDGE,  COUNTER,      GIGA_DRAIN,   SOLARBEAM,    \
+	     DIG,          LIGHT_SCREEN, MIMIC,        DOUBLE_TEAM,  REFLECT,      \
+	     X_SCISSOR,    REST,         SUBSTITUTE,   CUT,          FLASH
 	; end
 
-	db 0 ; padding
+	db BANK(ParasPicFront)
+	assert BANK(ParasPicFront) == BANK(ParasPicBack)

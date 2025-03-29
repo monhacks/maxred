@@ -14,7 +14,8 @@
 	db GROWTH_MEDIUM_FAST ; growth rate
 
 	; tm/hm learnset
-	tmhm
+	tmhm TOXIC,       REST
 	; end
 
-	db 0 ; padding
+	db BANK(MetapodPicFront)
+	assert BANK(MetapodPicFront) == BANK(MetapodPicBack)

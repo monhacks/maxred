@@ -105,12 +105,12 @@ WildDataPointers:
 	dw NothingWildMons
 	dw NothingWildMons
 	dw NothingWildMons
-	dw NothingWildMons
-	dw NothingWildMons
+	dw RockTunnelB2FWildMons
+	dw SafariZoneNortheastWildMons
 	dw NothingWildMons
 	dw VictoryRoad1FWildMons
-	dw NothingWildMons
-	dw NothingWildMons
+	dw VictoryRoadB1FWildMons
+	dw VictoryRoadOaksRoomWildMons
 	dw NothingWildMons
 	dw NothingWildMons
 	dw NothingWildMons
@@ -280,6 +280,7 @@ INCLUDE "data/wild/maps/Route6.asm"
 INCLUDE "data/wild/maps/Route11.asm"
 INCLUDE "data/wild/maps/RockTunnel1F.asm"
 INCLUDE "data/wild/maps/RockTunnelB1F.asm"
+INCLUDE "data/wild/maps/RockTunnelB2F.asm"
 INCLUDE "data/wild/maps/Route10.asm"
 INCLUDE "data/wild/maps/Route12.asm"
 INCLUDE "data/wild/maps/Route8.asm"
@@ -300,6 +301,7 @@ INCLUDE "data/wild/maps/Route18.asm"
 INCLUDE "data/wild/maps/SafariZoneCenter.asm"
 INCLUDE "data/wild/maps/SafariZoneEast.asm"
 INCLUDE "data/wild/maps/SafariZoneNorth.asm"
+INCLUDE "data/wild/maps/SafariZoneNortheast.asm"
 INCLUDE "data/wild/maps/SafariZoneWest.asm"
 INCLUDE "data/wild/maps/SeaRoutes.asm"
 INCLUDE "data/wild/maps/SeafoamIslands1F.asm"
@@ -320,4 +322,6 @@ INCLUDE "data/wild/maps/Route23.asm"
 INCLUDE "data/wild/maps/VictoryRoad2F.asm"
 INCLUDE "data/wild/maps/VictoryRoad3F.asm"
 INCLUDE "data/wild/maps/VictoryRoad1F.asm"
+INCLUDE "data/wild/maps/VictoryRoadB1F.asm"
+INCLUDE "data/wild/maps/VictoryRoadOaksRoom.asm"
 INCLUDE "data/wild/maps/DiglettsCave.asm"

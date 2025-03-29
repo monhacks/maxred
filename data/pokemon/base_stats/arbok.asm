@@ -14,10 +14,11 @@
 	db GROWTH_MEDIUM_FAST ; growth rate
 
 	; tm/hm learnset
-	tmhm TOXIC,        BODY_SLAM,    TAKE_DOWN,    DOUBLE_EDGE,  HYPER_BEAM,   \
-	     RAGE,         MEGA_DRAIN,   EARTHQUAKE,   FISSURE,      DIG,          \
-	     MIMIC,        DOUBLE_TEAM,  BIDE,         SKULL_BASH,   REST,         \
-	     ROCK_SLIDE,   SUBSTITUTE,   STRENGTH
+	tmhm TOXIC,       SLUDGE_BOMB, BODY_SLAM,   DOUBLE_EDGE, HYPER_BEAM,  \
+	     GIGA_DRAIN,  EARTHQUAKE,  FISSURE,     DIG,         MIMIC,       \
+	     DOUBLE_TEAM, ROCK_TOMB,   IRON_TAIL,   DARK_PULSE,  REST,        \
+	     ROCK_SLIDE,  SUBSTITUTE,  STRENGTH
 	; end
 
-	db 0 ; padding
+	db BANK(ArbokPicFront)
+	assert BANK(ArbokPicFront) == BANK(ArbokPicBack)

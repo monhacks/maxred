@@ -14,10 +14,11 @@
 	db GROWTH_SLOW ; growth rate
 
 	; tm/hm learnset
-	tmhm SWORDS_DANCE, TOXIC,        TAKE_DOWN,    DOUBLE_EDGE,  BUBBLEBEAM,   \
-	     WATER_GUN,    ICE_BEAM,     BLIZZARD,     HYPER_BEAM,   RAGE,         \
-	     MEGA_DRAIN,   MIMIC,        DOUBLE_TEAM,  REFLECT,      BIDE,         \
-	     SKULL_BASH,   REST,         SUBSTITUTE,   CUT,          SURF
+	tmhm SWORDS_DANCE, FOCUS_ENERGY, TOXIC,        SLUDGE_BOMB,  DOUBLE_EDGE,  \
+	     WATER_PULSE,  CHILLINWATER, ICE_BEAM,     BLIZZARD,     HYPER_BEAM,   \
+	     GIGA_DRAIN,   LIGHT_SCREEN, MIMIC,        DOUBLE_TEAM,  REFLECT,      \
+	     REST,         SUBSTITUTE,   CUT,          SURF,         FLASH
 	; end
 
-	db 0 ; padding
+	db BANK(TentacruelPicFront)
+	assert BANK(TentacruelPicFront) == BANK(TentacruelPicBack)

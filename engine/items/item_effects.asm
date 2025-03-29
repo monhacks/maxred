@@ -100,6 +100,21 @@ ItemUsePtrTable:
 	dw ItemUsePPRestore  ; MAX_ETHER
 	dw ItemUsePPRestore  ; ELIXER
 	dw ItemUsePPRestore  ; MAX_ELIXER
+	dw ItemUseEvoStone   ; SUN_STONE
+	dw ItemUseEvoStone   ; DUSK_STONE
+	dw ItemUseEvoStone   ; SHINY_STONE
+	dw ItemUseEvoStone   ; ICE_STONE
+	dw ItemUseEvoStone   ; KINGS_ROCK
+	dw ItemUseEvoStone   ; METAL_COAT
+	dw ItemUseEvoStone   ; DRAGON_SCALE
+	dw ItemUseEvoStone   ; UPGRADE
+	dw ItemUseEvoStone   ; DUBIOUS_DISC
+	dw ItemUseEvoStone   ; RAZOR_CLAW
+	dw ItemUseEvoStone   ; RAZOR_FANG
+	dw ItemUseEvoStone   ; SUN_STONE
+	dw ItemUseEvoStone   ; PROTECTOR
+	dw ItemUseEvoStone   ; ELECTIRIZER
+	dw ItemUseEvoStone   ; MAGMARIZER
 
 ItemUseBall:
 
@@ -421,7 +436,7 @@ ItemUseBall:
 
 ; Do the animation.
 	ld a, TOSS_ANIM
-	ld [wAnimationID], a
+	ld [wAltAnimationID], a
 	xor a
 	ldh [hWhoseTurn], a
 	ld [wAnimationType], a
@@ -1458,7 +1473,7 @@ ItemUseRock:
 	ld de, wSafariBaitFactor ; bait factor
 
 BaitRockCommon:
-	ld [wAnimationID], a
+	ld [wAltAnimationID], a
 	xor a
 	ld [wAnimationType], a
 	ldh [hWhoseTurn], a
@@ -1656,6 +1671,7 @@ ItemUseXStat:
 	call PrintItemUseTextAndRemoveItem
 	ld a, XSTATITEM_ANIM ; X stat item animation ID
 	ld [wPlayerMoveNum], a
+	ld [wAltAnimationID], a
 	call LoadScreenTilesFromBuffer1 ; restore saved screen
 	call Delay3
 	xor a
@@ -2294,7 +2310,7 @@ ThrowBallAtTrainerMon:
 	call LoadScreenTilesFromBuffer1 ; restore saved screen
 	call Delay3
 	ld a, TOSS_ANIM
-	ld [wAnimationID], a
+	ld [wAltAnimationID], a
 	predef MoveAnimation ; do animation
 	ld hl, ThrowBallAtTrainerMonText1
 	call PrintText

@@ -14,12 +14,14 @@
 	db GROWTH_MEDIUM_FAST ; growth rate
 
 	; tm/hm learnset
-	tmhm MEGA_PUNCH,   MEGA_KICK,    TOXIC,        BODY_SLAM,    TAKE_DOWN,    \
-	     DOUBLE_EDGE,  BUBBLEBEAM,   WATER_GUN,    ICE_BEAM,     BLIZZARD,     \
-	     HYPER_BEAM,   SUBMISSION,   COUNTER,      SEISMIC_TOSS, RAGE,         \
-	     THUNDERBOLT,  THUNDER,      EARTHQUAKE,   FISSURE,      MIMIC,        \
-	     DOUBLE_TEAM,  BIDE,         FIRE_BLAST,   SKULL_BASH,   REST,         \
-	     ROCK_SLIDE,   SUBSTITUTE,   SURF,         STRENGTH
+	tmhm DYNAMICPUNCH, AERIAL_ACE,   FOCUS_ENERGY, BULK_UP,      TOXIC,        \
+	     BODY_SLAM,    ROCK_CLIMB,   DOUBLE_EDGE,  WATER_PULSE,  ICE_BEAM,     \
+	     BLIZZARD,     HYPER_BEAM,   MUD_SLAP,     COUNTER,      SEISMIC_TOSS, \
+	     SOLARBEAM,    THUNDERBOLT,  THUNDER,      EARTHQUAKE,   FISSURE,      \
+	     DIG,          MIMIC,        DOUBLE_TEAM,  ROCK_TOMB,    FLAMETHROWER, \
+	     FIRE_BLAST,   IRON_TAIL,    SHADOW_BALL,  REST,         ROCK_SLIDE,   \
+	     SUBSTITUTE,   CUT,          SURF,         STRENGTH
 	; end
 
-	db 0 ; padding
+	db BANK(KangaskhanPicFront)
+	assert BANK(KangaskhanPicFront) == BANK(KangaskhanPicBack)

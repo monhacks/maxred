@@ -1086,7 +1086,11 @@ wItemList:: ds 16
 wListPointer:: dw
 
 ; used to store pointers, but never read
-wUnusedNamePointer:: dw
+wUnusedNamePointer::
+; 2 bytes
+; used to store pointers, but never read
+; joenote - used as a temp location for sorting through name data
+	ds 2
 
 wItemPrices:: dw
 
@@ -1352,7 +1356,9 @@ wTempTilesetNumTiles:: db
 ; so that it can be restored when the player is done with the pokemart NPC
 wSavedListScrollOffset:: db
 
-	ds 2
+wAltAnimationID:: db
+
+	ds 1
 
 ; base coordinates of frame block
 wBaseCoordX:: db
@@ -1535,7 +1541,7 @@ wMonHBackSprite:: dw
 wMonHMoves:: ds NUM_MOVES
 wMonHGrowthRate:: db
 wMonHLearnset:: flag_array NUM_TMS + NUM_HMS
-	ds 1
+wMonHPicBank:: db
 wMonHeaderEnd::
 
 ; saved at the start of a battle and then written back at the end of the battle
@@ -1699,7 +1705,9 @@ wPseudoItemID:: db
 
 wUnusedAlreadyOwnedFlag:: db
 
-	ds 2
+wIsTrainerBattle:: db
+
+wWasTrainerBattle:: db
 
 wEvoStoneItemID:: db
 
@@ -1959,9 +1967,9 @@ wRoute17CurScript:: db
 wRoute19CurScript:: db
 wRoute21CurScript:: db
 wSafariZoneGateCurScript:: db
+wRockTunnelB2FCurScript:: db
 wRockTunnelB1FCurScript:: db
 wRockTunnel1FCurScript:: db
-	ds 1
 wRoute11CurScript:: db
 wRoute12CurScript:: db
 wRoute15CurScript:: db
@@ -1992,7 +2000,7 @@ wPokemonMansion3FCurScript:: db
 wPokemonMansionB1FCurScript:: db
 wVictoryRoad2FCurScript:: db
 wVictoryRoad3FCurScript:: db
-	ds 1
+wVictoryRoadB1FCurScript:: db
 wFightingDojoCurScript:: db
 wSilphCo2FCurScript:: db
 wSilphCo3FCurScript:: db
@@ -2009,7 +2017,7 @@ wBrunosRoomCurScript:: db
 wAgathasRoomCurScript:: db
 wCeruleanCaveB1FCurScript:: db
 wVictoryRoad1FCurScript:: db
-	ds 1
+wVictoryRoadOaksRoomCurScript:: db
 wLancesRoomCurScript:: db
 	ds 4
 wSilphCo10FCurScript:: db

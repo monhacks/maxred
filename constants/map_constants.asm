@@ -124,12 +124,12 @@ DEF FIRST_INDOOR_MAP EQU const_value
 	map_const SS_ANNE_1F_ROOMS,              12,  8 ; $66
 	map_const SS_ANNE_2F_ROOMS,              12,  8 ; $67
 	map_const SS_ANNE_B1F_ROOMS,             12,  8 ; $68
-	map_const UNUSED_MAP_69,                  0,  0 ; $69
-	map_const UNUSED_MAP_6A,                  0,  0 ; $6A
-	map_const UNUSED_MAP_6B,                  0,  0 ; $6B
-	map_const VICTORY_ROAD_1F,               10,  9 ; $6C
-	map_const UNUSED_MAP_6D,                  0,  0 ; $6D
-	map_const UNUSED_MAP_6E,                  0,  0 ; $6E
+	map_const ROCK_TUNNEL_B2F,               20, 18 ; $69
+	map_const SAFARI_ZONE_NORTHEAST,         15, 13 ; $6A
+	map_const SAFARI_ZONE_NE_REST_HOUSE,      4,  4 ; $6B
+	map_const VICTORY_ROAD_1F,               10, 11 ; $6C
+	map_const VICTORY_ROAD_B1F,              11, 10 ; $6D
+	map_const VICTORY_ROAD_OAKS_ROOM,        11, 10 ; $6E
 	map_const UNUSED_MAP_6F,                  0,  0 ; $6F
 	map_const UNUSED_MAP_70,                  0,  0 ; $70
 	map_const LANCES_ROOM,                   13, 13 ; $71
@@ -191,7 +191,7 @@ DEF FIRST_INDOOR_MAP EQU const_value
 	map_const CINNABAR_LAB_METRONOME_ROOM,    4,  4 ; $A9
 	map_const CINNABAR_LAB_FOSSIL_ROOM,       4,  4 ; $AA
 	map_const CINNABAR_POKECENTER,            7,  4 ; $AB
-	map_const CINNABAR_MART,                  4,  4 ; $AC
+	map_const CINNABAR_MART,                  4,  5 ; $AC
 	map_const CINNABAR_MART_COPY,             4,  4 ; $AD
 	map_const INDIGO_PLATEAU_LOBBY,           8,  6 ; $AE
 	map_const COPYCATS_HOUSE_1F,              4,  4 ; $AF
@@ -199,7 +199,7 @@ DEF FIRST_INDOOR_MAP EQU const_value
 	map_const FIGHTING_DOJO,                  5,  6 ; $B1
 	map_const SAFFRON_GYM,                   10,  9 ; $B2
 	map_const SAFFRON_PIDGEY_HOUSE,           4,  4 ; $B3
-	map_const SAFFRON_MART,                   4,  4 ; $B4
+	map_const SAFFRON_MART,                   4,  5 ; $B4
 	map_const SILPH_CO_1F,                   15,  9 ; $B5
 	map_const SAFFRON_POKECENTER,             7,  4 ; $B6
 	map_const MR_PSYCHICS_HOUSE,              4,  4 ; $B7

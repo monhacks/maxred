@@ -14,18 +14,19 @@
 	db GROWTH_MEDIUM_SLOW ; growth rate
 
 	; tm/hm learnset
-	tmhm MEGA_PUNCH,   RAZOR_WIND,   SWORDS_DANCE, WHIRLWIND,    MEGA_KICK,    \
-	     TOXIC,        HORN_DRILL,   BODY_SLAM,    TAKE_DOWN,    DOUBLE_EDGE,  \
-	     BUBBLEBEAM,   WATER_GUN,    ICE_BEAM,     BLIZZARD,     HYPER_BEAM,   \
-	     PAY_DAY,      SUBMISSION,   COUNTER,      SEISMIC_TOSS, RAGE,         \
-	     MEGA_DRAIN,   SOLARBEAM,    DRAGON_RAGE,  THUNDERBOLT,  THUNDER,      \
-	     EARTHQUAKE,   FISSURE,      DIG,          PSYCHIC_M,    TELEPORT,     \
-	     MIMIC,        DOUBLE_TEAM,  REFLECT,      BIDE,         METRONOME,    \
-	     SELFDESTRUCT, EGG_BOMB,     FIRE_BLAST,   SWIFT,        SKULL_BASH,   \
-	     SOFTBOILED,   DREAM_EATER,  SKY_ATTACK,   REST,         THUNDER_WAVE, \
-	     PSYWAVE,      EXPLOSION,    ROCK_SLIDE,   TRI_ATTACK,   SUBSTITUTE,   \
-	     CUT,          FLY,          SURF,         STRENGTH,     FLASH,        \
-	     UNUSED
+	tmhm DYNAMICPUNCH, AERIAL_ACE,   SWORDS_DANCE, FOCUS_ENERGY, BULK_UP,      \
+	     TOXIC,        SLUDGE_BOMB,  BODY_SLAM,    ROCK_CLIMB,   DOUBLE_EDGE,  \
+	     WATER_PULSE,  CHILLINWATER, ICE_BEAM,     BLIZZARD,     HYPER_BEAM,   \
+	     MUD_SLAP,     CHARGE_BEAM,  COUNTER,      SEISMIC_TOSS, WILL_O_WISP,  \
+	     GIGA_DRAIN,   SOLARBEAM,    DRAGONBREATH, THUNDERBOLT,  THUNDER,      \
+	     EARTHQUAKE,   FISSURE,      DIG,          PSYCHIC_M,    LIGHT_SCREEN, \
+	     MIMIC,        DOUBLE_TEAM,  REFLECT,      ROCK_TOMB,    METRONOME,    \
+	     SELFDESTRUCT, FLAMETHROWER, FIRE_BLAST,   X_SCISSOR,    IRON_TAIL,    \
+	     DARK_PULSE,   SHADOW_BALL,  HURRICANE,    REST,         THUNDER_WAVE, \
+	     CALM_MIND,    EXPLOSION,    ROCK_SLIDE,   TRI_ATTACK,   SUBSTITUTE,   \
+	     MOONBLAST,    CUT,          FLY,          SURF,         STRENGTH,     \
+	     FLASH
 	; end
 
-	db %11111111 ; padding
+	db BANK(MewPicFront)
+	assert BANK(MewPicFront) == BANK(MewPicBack)

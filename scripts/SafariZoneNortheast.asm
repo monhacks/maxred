@@ -1,0 +1,5 @@
+SafariZoneNortheast_Script:
+	jp EnableAutoTextBoxDrawing
+
+SafariZoneNortheast_TextPointers:
+	def_text_pointers

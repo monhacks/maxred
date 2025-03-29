@@ -14,10 +14,10 @@
 	db GROWTH_MEDIUM_FAST ; growth rate
 
 	; tm/hm learnset
-	tmhm TOXIC,        HORN_DRILL,   TAKE_DOWN,    DOUBLE_EDGE,  BUBBLEBEAM,   \
-	     WATER_GUN,    ICE_BEAM,     BLIZZARD,     RAGE,         MIMIC,        \
-	     DOUBLE_TEAM,  BIDE,         SWIFT,        SKULL_BASH,   REST,         \
-	     SUBSTITUTE,   SURF
+	tmhm AERIAL_ACE,   SWORDS_DANCE, TOXIC,        DOUBLE_EDGE,  WATER_PULSE,  \
+	     ICE_BEAM,     BLIZZARD,     MUD_SLAP,     MIMIC,        DOUBLE_TEAM,  \
+	     REST,         SUBSTITUTE,   SURF
 	; end
 
-	db 0 ; padding
+	db BANK(GoldeenPicFront)
+	assert BANK(GoldeenPicFront) == BANK(GoldeenPicBack)

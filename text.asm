@@ -266,6 +266,7 @@ INCLUDE "data/text/text_6.asm"
 SECTION "Text 11", ROMX
 
 INCLUDE "data/text/text_7.asm"
+INCLUDE "engine/battle/slot_machines.asm"
 
 
 SECTION "Pokédex Text", ROMX
@@ -276,3 +277,4 @@ INCLUDE "data/pokemon/dex_text.asm"
 SECTION "Move Names", ROMX
 
 INCLUDE "data/moves/names.asm"
+INCLUDE "data/pokemon/new_dex_text.asm"

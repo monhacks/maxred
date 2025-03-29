@@ -144,6 +144,7 @@ SeafoamIslandsB3FObjectMoving2Script:
 
 SeafoamIslandsB3F_TextPointers:
 	def_text_pointers
+	dw_const PickUpItemText, TEXT_SEAFOAMISLANDSB3F_TM_BLIZZARD
 	dw_const BoulderText, TEXT_SEAFOAMISLANDSB3F_BOULDER1
 	dw_const BoulderText, TEXT_SEAFOAMISLANDSB3F_BOULDER2
 	dw_const BoulderText, TEXT_SEAFOAMISLANDSB3F_BOULDER3

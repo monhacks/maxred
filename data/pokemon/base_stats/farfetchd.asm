@@ -14,10 +14,11 @@
 	db GROWTH_MEDIUM_FAST ; growth rate
 
 	; tm/hm learnset
-	tmhm RAZOR_WIND,   SWORDS_DANCE, WHIRLWIND,    TOXIC,        BODY_SLAM,    \
-	     TAKE_DOWN,    DOUBLE_EDGE,  RAGE,         MIMIC,        DOUBLE_TEAM,  \
-	     REFLECT,      BIDE,         SWIFT,        SKULL_BASH,   REST,         \
-	     SUBSTITUTE,   CUT,          FLY
+	tmhm DYNAMICPUNCH, AERIAL_ACE,   SWORDS_DANCE, FOCUS_ENERGY, TOXIC,        \
+	     BODY_SLAM,    DOUBLE_EDGE,  HYPER_BEAM,   MUD_SLAP,     COUNTER,      \
+	     MIMIC,        DOUBLE_TEAM,  METRONOME,    IRON_TAIL,    DARK_PULSE,   \
+	     REST,         SUBSTITUTE,   CUT,          FLY
 	; end
 
-	db 0 ; padding
+	db BANK(FarfetchdPicFront)
+	assert BANK(FarfetchdPicFront) == BANK(FarfetchdPicBack)

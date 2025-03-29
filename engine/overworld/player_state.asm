@@ -218,10 +218,15 @@ INCLUDE "data/tilesets/warp_tile_ids.asm"
 
 PrintSafariZoneSteps::
 	ld a, [wCurMap]
+	cp SAFARI_ZONE_NORTHEAST
+	jr z, .inSafariZone
+	cp SAFARI_ZONE_NE_REST_HOUSE
+	jr z, .inSafariZone
 	cp SAFARI_ZONE_EAST
 	ret c
 	cp CERULEAN_CAVE_2F
 	ret nc
+.inSafariZone
 	hlcoord 0, 0
 	ld b, 3
 	ld c, 7

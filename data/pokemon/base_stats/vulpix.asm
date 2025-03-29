@@ -14,9 +14,11 @@
 	db GROWTH_MEDIUM_FAST ; growth rate
 
 	; tm/hm learnset
-	tmhm TOXIC,        BODY_SLAM,    TAKE_DOWN,    DOUBLE_EDGE,  RAGE,         \
-	     DIG,          MIMIC,        DOUBLE_TEAM,  REFLECT,      BIDE,         \
-	     FIRE_BLAST,   SWIFT,        SKULL_BASH,   REST,         SUBSTITUTE
+	tmhm TOXIC,        BODY_SLAM,    DOUBLE_EDGE,  WILL_O_WISP,  DIG,          \
+	     LIGHT_SCREEN, MIMIC,        DOUBLE_TEAM,  REFLECT,      FLAMETHROWER, \
+	     FIRE_BLAST,   IRON_TAIL,    DARK_PULSE,   SHADOW_BALL,  REST,         \
+	     SUBSTITUTE,   FLASH
 	; end
 
-	db 0 ; padding
+	db BANK(VulpixPicFront)
+	assert BANK(VulpixPicFront) == BANK(VulpixPicBack)

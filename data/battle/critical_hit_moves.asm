@@ -3,4 +3,10 @@ HighCriticalMoves:
 	db RAZOR_LEAF
 	db CRABHAMMER
 	db SLASH
+	db CROSS_CHOP
+	db LEAF_BLADE
+	db AIR_CUTTER
+	db CROSS_POISON
+	db STONE_EDGE
+	db NIGHT_SLASH
 	db -1 ; end

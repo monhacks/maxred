@@ -2,7 +2,7 @@ NamePointers::
 ; entries correspond to *_NAME constants
 	dw MonsterNames
 	dw MoveNames
-	dw UnusedBadgeNames
+	dw tmhmNames
 	dw ItemNames
 	dw wPartyMonOT ; player's OT names list
 	dw wEnemyMonOT ; enemy's OT names list
@@ -17,18 +17,21 @@ GetName::
 ; returns pointer to name in de
 	ld a, [wNameListIndex]
 	ld [wNamedObjectIndex], a
-
 	; TM names are separate from item names.
-	; BUG: This applies to all names instead of just items.
-	ASSERT NUM_POKEMON_INDEXES < HM01, \
-		"A bug in GetName will get TM/HM names for Pokémon above ${x:HM01}."
-	ASSERT NUM_ATTACKS < HM01, \
-		"A bug in GetName will get TM/HM names for moves above ${x:HM01}."
-	ASSERT NUM_TRAINERS < HM01, \
-		"A bug in GetName will get TM/HM names for trainers above ${x:HM01}."
+	push bc
+	ld b, a
+	ld a, [wNameListType]
+	cp ITEM_NAME
+	ld a, b
+	pop bc
+	jr nz, .notMachine
 	cp HM01
-	jp nc, GetMachineName
-
+	jr c, .notMachine
+	sub (HM01 - 1) ; need to shift things because tm and hm constants are offset by -$C3 from the first item constant
+	ld [wNameListIndex], a
+	ld a, TMHM_NAME
+	ld [wNameListType], a
+.notMachine
 	ldh a, [hLoadedROMBank]
 	push af
 	push hl
@@ -87,10 +90,12 @@ GetName::
 	ld bc, NAME_BUFFER_LENGTH
 	call CopyData
 .gotPtr
-	ld a, e
-	ld [wUnusedNamePointer], a
-	ld a, d
-	ld [wUnusedNamePointer + 1], a
+	ld a, [wNamedObjectIndex]
+	cp HM01
+	jr c, .notMachine2
+	ld a, ITEM_NAME ; this needs to be reset because machines can be in the same listings as items
+	ld [wNameListType], a
+.notMachine2
 	pop de
 	pop bc
 	pop hl

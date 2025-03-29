@@ -14,11 +14,12 @@
 	db GROWTH_MEDIUM_SLOW ; growth rate
 
 	; tm/hm learnset
-	tmhm MEGA_PUNCH,   MEGA_KICK,    TOXIC,        BODY_SLAM,    TAKE_DOWN,    \
-	     DOUBLE_EDGE,  BUBBLEBEAM,   WATER_GUN,    ICE_BEAM,     BLIZZARD,     \
-	     SUBMISSION,   COUNTER,      SEISMIC_TOSS, RAGE,         DIG,          \
-	     MIMIC,        DOUBLE_TEAM,  REFLECT,      BIDE,         SKULL_BASH,   \
-	     REST,         SUBSTITUTE,   SURF,         STRENGTH
+	tmhm DYNAMICPUNCH, TOXIC,        BODY_SLAM,    DOUBLE_EDGE,  WATER_PULSE,  \
+	     CHILLINWATER, ICE_BEAM,     BLIZZARD,     MUD_SLAP,     COUNTER,      \
+	     SEISMIC_TOSS, DIG,          MIMIC,        DOUBLE_TEAM,  REFLECT,      \
+	     ROCK_TOMB,    IRON_TAIL,    REST,         SUBSTITUTE,   SURF,         \
+	     STRENGTH
 	; end
 
-	db 0 ; padding
+	db BANK(WartortlePicFront)
+	assert BANK(WartortlePicFront) == BANK(WartortlePicBack)

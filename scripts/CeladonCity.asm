@@ -43,23 +43,23 @@ CeladonCityGramps2Text:
 
 CeladonCityGramps3Text:
 	text_asm
-	CheckEvent EVENT_GOT_TM41
-	jr nz, .gotTM41
+	CheckEvent EVENT_GOT_TM42
+	jr nz, .gotTM42
 	ld hl, .Text
 	call PrintText
-	lb bc, TM_SOFTBOILED, 1
+	lb bc, TM_SHADOW_BALL, 1
 	call GiveItem
 	jr c, .Success
-	ld hl, .TM41NoRoomText
+	ld hl, .TM42NoRoomText
 	call PrintText
 	jr .Done
 .Success
-	ld hl, .ReceivedTM41Text
+	ld hl, .ReceivedTM42Text
 	call PrintText
-	SetEvent EVENT_GOT_TM41
+	SetEvent EVENT_GOT_TM42
 	jr .Done
-.gotTM41
-	ld hl, .TM41ExplanationText
+.gotTM42
+	ld hl, .TM42ExplanationText
 	call PrintText
 .Done
 	jp TextScriptEnd
@@ -68,17 +68,17 @@ CeladonCityGramps3Text:
 	text_far _CeladonCityGramps3Text
 	text_end
 
-.ReceivedTM41Text:
-	text_far _CeladonCityGramps3ReceivedTM41Text
+.ReceivedTM42Text:
+	text_far _CeladonCityGramps3ReceivedTM42Text
 	sound_get_item_1
 	text_end
 
-.TM41ExplanationText:
-	text_far _CeladonCityGramps3TM41ExplanationText
+.TM42ExplanationText:
+	text_far _CeladonCityGramps3TM42ExplanationText
 	text_end
 
-.TM41NoRoomText:
-	text_far _CeladonCityGramps3TM41NoRoomText
+.TM42NoRoomText:
+	text_far _CeladonCityGramps3TM42NoRoomText
 	text_end
 
 CeladonCityFisherText:

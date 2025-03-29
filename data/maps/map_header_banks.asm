@@ -106,12 +106,12 @@ MapHeaderBanks::
 	db BANK(SSAnne1FRooms_h)
 	db BANK(SSAnne2FRooms_h)
 	db BANK(SSAnneB1FRooms_h)
-	db $1D ; UNUSED_MAP_69
-	db $1D ; UNUSED_MAP_6A
-	db $1D ; UNUSED_MAP_6B
+	db BANK(RockTunnelB2F_h)
+	db BANK(SafariZoneNortheast_h)
+	db BANK(SafariZoneNERestHouse_h)
 	db BANK(VictoryRoad1F_h)
-	db $1D ; UNUSED_MAP_6D
-	db $1D ; UNUSED_MAP_6E
+	db BANK(VictoryRoadB1F_h)
+	db BANK(VictoryRoadOaksRoom_h)
 	db $1D ; UNUSED_MAP_6F
 	db $1D ; UNUSED_MAP_70
 	db BANK(LancesRoom_h)

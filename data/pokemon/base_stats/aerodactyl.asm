@@ -14,10 +14,12 @@
 	db GROWTH_SLOW ; growth rate
 
 	; tm/hm learnset
-	tmhm RAZOR_WIND,   WHIRLWIND,    TOXIC,        TAKE_DOWN,    DOUBLE_EDGE,  \
-	     HYPER_BEAM,   RAGE,         DRAGON_RAGE,  MIMIC,        DOUBLE_TEAM,  \
-	     REFLECT,      BIDE,         FIRE_BLAST,   SWIFT,        SKY_ATTACK,   \
-	     REST,         SUBSTITUTE,   FLY
+	tmhm AERIAL_ACE,   TOXIC,        BODY_SLAM,    DOUBLE_EDGE,  HYPER_BEAM,   \
+	     MUD_SLAP,     DRAGONBREATH, EARTHQUAKE,   FISSURE,      MIMIC,        \
+	     DOUBLE_TEAM,  REFLECT,      ROCK_TOMB,    FLAMETHROWER, FIRE_BLAST,   \
+	     IRON_TAIL,    REST,         ROCK_SLIDE,   SUBSTITUTE,   FLY,          \
+	     STRENGTH
 	; end
 
-	db 0 ; padding
+	db BANK(AerodactylPicFront)
+	assert BANK(AerodactylPicFront) == BANK(AerodactylPicBack)

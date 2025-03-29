@@ -14,9 +14,10 @@
 	db GROWTH_MEDIUM_FAST ; growth rate
 
 	; tm/hm learnset
-	tmhm TOXIC,        BODY_SLAM,    TAKE_DOWN,    DOUBLE_EDGE,  RAGE,         \
-	     MIMIC,        DOUBLE_TEAM,  REFLECT,      BIDE,         SWIFT,        \
-	     SKULL_BASH,   REST,         SUBSTITUTE
+	tmhm FOCUS_ENERGY, TOXIC,        BODY_SLAM,    DOUBLE_EDGE,  MUD_SLAP,     \
+	     DIG,          MIMIC,        DOUBLE_TEAM,  REFLECT,      METRONOME,    \
+	     IRON_TAIL,    SHADOW_BALL,  REST,         SUBSTITUTE
 	; end
 
-	db 0 ; padding
+	db BANK(EeveePicFront)
+	assert BANK(EeveePicFront) == BANK(EeveePicBack)
